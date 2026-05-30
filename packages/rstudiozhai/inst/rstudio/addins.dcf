@@ -1,0 +1,5 @@
+Name: RStudio 中文 AI 工作台
+Description: 打开中文 AI 工作台，用于环境诊断、报错解释、代码生成和报告生成。
+Binding: run_workbench
+Interactive: true
+

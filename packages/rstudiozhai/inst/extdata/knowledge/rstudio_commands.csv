@@ -1,0 +1,11 @@
+id,label,zh_label,category,entrypoint,description
+new-project,New Project,新建项目,project,File > New Project,Create a reproducible working directory and project context
+install-packages,Install Packages,安装 R 包,packages,Tools > Install Packages,Install packages into the active R library
+check-package,Check Package,检查 R 包,package-dev,Build pane > Check,Run R CMD check for package development
+render-quarto,Render Quarto,渲染 Quarto,reporting,Render button,Render qmd documents to HTML PDF Word or other formats
+run-selection,Run Selected Lines,运行选中代码,code,Ctrl+Enter,Send selected code from the editor to the Console
+restart-r,Restart R,重启 R 会话,session,Session > Restart R,Clear session state and restart the R process
+global-options,Global Options,全局选项,settings,Tools > Global Options,Configure RStudio behavior appearance packages and terminals
+addins,Addins,插件菜单,extension,Addins menu,Run interactive tools exposed by installed R packages
+terminal,New Terminal,新建终端,tools,Terminal tab,Open a shell inside the active project
+jobs,Start Local Job,启动本地任务,tools,Jobs pane,Run long scripts as IDE jobs

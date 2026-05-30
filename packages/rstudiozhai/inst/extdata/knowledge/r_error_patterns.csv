@@ -1,0 +1,8 @@
+id,pattern,zh_title,explanation,suggested_action
+object-not-found,object( .*)? not found|object not found,找不到对象,通常是对象名拼写错误或代码运行顺序不对。先确认 Environment 中是否存在该对象。,检查对象名；从上到下重新运行脚本；避免依赖未创建的中间变量。
+could-not-find-function,could not find function,找不到函数,通常是没有加载包含该函数的 R 包，或函数名拼写错误。,先运行 library(package)；确认包已安装；检查函数大小写。
+package-missing,there is no package called,缺少 R 包,当前 R library 里没有这个包。,运行 install.packages 安装；确认 R 版本与包仓库可用。
+cannot-open-file,cannot open (the )?connection|No such file or directory,找不到文件或路径,路径不存在、工作目录不对、文件名拼写不一致都会触发。,检查 getwd()；使用 file.exists()；优先使用 RStudio Project 管理路径。
+non-numeric,non-numeric argument,类型不是数值,代码期望数值但收到了字符、因子或其他类型。,使用 str() 检查类型；必要时 as.numeric()；导入数据时检查列类型。
+subscript-out-of-bounds,subscript out of bounds,下标越界,访问了不存在的行、列或列表元素。,检查 nrow/ncol/names；避免硬编码不存在的位置。
+unexpected-symbol,unexpected symbol,语法错误,常见原因是缺少逗号、括号、引号或换行位置不对。,从报错行附近检查括号和引号；用 Source 编辑器重新格式化代码。

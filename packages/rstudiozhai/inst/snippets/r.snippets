@@ -1,0 +1,26 @@
+snippet rzdiag
+	report <- collect_environment_report()
+	cat(format_environment_report(report))
+
+snippet rzexplain
+	request <- build_ai_task_request(
+	  task = "${1:Explain this R code}",
+	  mode = "explain",
+	  provider = "local",
+	  context = list(selection = "${2:selected code or error}")
+	)
+	invoke_ai_provider(request, local_chinese_provider)
+
+snippet rzreport
+	result <- create_quarto_report(
+	  task = "${1:Analysis task}",
+	  ai_result = "${2:Workbench result}",
+	  output_dir = "reports",
+	  title = "${3:RStudio Chinese AI Workbench Report}"
+	)
+	result$path
+
+snippet rzdbi
+	library(DBI)
+	con <- DBI::dbConnect(${1:Driver}(), ${2:arguments})
+	DBI::dbListTables(con)

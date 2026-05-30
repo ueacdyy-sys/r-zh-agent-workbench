@@ -1,0 +1,13 @@
+id,term,zh,category,description,action
+console,Console,控制台,ui,Run R code interactively and inspect immediate output,Use it for quick checks and small commands
+source,Source,源码编辑器,ui,Edit scripts Quarto files and package code,Use it for reusable and versioned work
+environment,Environment,环境窗格,ui,Inspect objects loaded in the current R session,Use it to confirm object names and sizes
+viewer,Viewer,查看器,ui,Preview HTML widgets Shiny gadgets and local web output,Use it for Addin UI previews and rendered artifacts
+jobs,Jobs,后台任务,tools,Run long scripts outside the interactive console,Use it for rendering reports checks and slow tasks
+terminal,Terminal,终端,tools,Run shell commands inside the IDE,Use it for git quarto and external CLI commands
+project,Project,项目,workflow,Bind files working directory settings and build tools,Use projects to keep analysis reproducible
+quarto,Quarto,Quarto 文档,reporting,Create reproducible reports notebooks websites and presentations,Use it for final analysis reports
+renv,renv,包环境锁定,environment,Record and restore R package versions,Use it when a project needs reproducible dependencies
+addin,Addin,插件入口,extension,Expose package functions in the RStudio Addins menu,Use it for interactive workflow tools
+rstudioapi,rstudioapi,RStudio API,extension,Public R package for interacting with RStudio IDE features,Use it instead of internal .rs functions
+project-template,Project Template,项目模板,extension,Create predefined project structures from the New Project wizard,Use it to scaffold repeatable workflows

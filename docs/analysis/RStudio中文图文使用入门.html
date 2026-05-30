@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RStudio 中文图文使用入门</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #16202a;
+      --muted: #5f6b7a;
+      --line: #d8e0ea;
+      --blue: #245d9f;
+      --green: #24724d;
+      --amber: #9a5a12;
+      --red: #a33a3a;
+      --navy: #102033;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 30px 24px 26px;
+      border-bottom: 5px solid #20a99a;
+    }
+    main {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 60px;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.25; letter-spacing: 0; }
+    h1 { font-size: clamp(28px, 4vw, 44px); }
+    h2 { font-size: 24px; margin-bottom: 12px; }
+    h3 { font-size: 18px; margin-bottom: 8px; }
+    p { margin: 0 0 10px; }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #eef3f8;
+      border: 1px solid #dce5ef;
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+    .subtitle { max-width: 980px; margin-top: 12px; color: #d9e7f5; font-size: 18px; }
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: 0 1px 2px rgba(16, 32, 51, 0.05);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fbfdff;
+    }
+    .callout {
+      border-left: 5px solid var(--amber);
+      background: #fff8e8;
+      padding: 14px 16px;
+      margin-top: 12px;
+      border-radius: 6px;
+    }
+    .ok {
+      border-left: 5px solid var(--green);
+      background: #eff8f2;
+      padding: 14px 16px;
+      margin-top: 12px;
+      border-radius: 6px;
+    }
+    .shot {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .shot img {
+      width: 100%;
+      display: block;
+    }
+    .caption {
+      padding: 10px 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #eef4fb; }
+    ol, ul { margin: 8px 0 0 22px; padding: 0; }
+    li { margin: 6px 0; }
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 13px;
+      color: #fff;
+      background: var(--blue);
+      margin-right: 6px;
+    }
+    .tag.green { background: var(--green); }
+    .tag.amber { background: var(--amber); }
+    .tag.red { background: var(--red); }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .section { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RStudio 中文图文使用入门</h1>
+    <p class="subtitle">这是一份先能看懂界面的教程：RStudio 本体仍是英文 UI，下面用中文解释每个区域做什么、怎么开始写 R 代码、怎么看数据、怎么出图、怎么生成报告。</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>先把两个误会说清楚</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>1. RStudio 没有被真正汉化</h3>
+          <p>你看到的 <code>File</code>、<code>Edit</code>、<code>Console</code>、<code>Environment</code> 等仍是英文，这是 RStudio 本体界面。Console 里的中文只是 R 运行环境输出，不等于 IDE 已汉化。</p>
+        </article>
+        <article class="card">
+          <h3>2. 截图不全来自屏幕缩放</h3>
+          <p>本机 RStudio 窗口 DPI 是 <code>192</code>，也就是 Windows 缩放约 <code>200%</code>。普通截图会只拿到逻辑尺寸 <code>1280x720</code>，DPI-aware 截图才能拿到完整 <code>2560x1440</code> 画面。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>RStudio 主界面怎么看</h2>
+      <p>RStudio 通常分成四块：左上 Source 写脚本，左下 Console 执行命令，右上 Environment 看变量和历史，右下 Files/Plots/Packages/Help/Viewer 看文件、图表、包、帮助和网页预览。</p>
+      <div class="shot">
+        <img src="rstudio使用教程截图/01-rstudio-dpiaware-full.png" alt="RStudio 主界面完整截图">
+        <div class="caption">完整 DPI-aware 截图：右上是 Environment，右下是 Files，左侧是 Console。当前项目是 rstudio使用教程样例。</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>英文区域</th>
+            <th>中文理解</th>
+            <th>主要用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Source</code></td>
+            <td>脚本编辑器</td>
+            <td>写 <code>.R</code>、<code>.qmd</code>、<code>.Rmd</code> 文件；点击 <code>Run</code> 运行当前行或选中代码。</td>
+          </tr>
+          <tr>
+            <td><code>Console</code></td>
+            <td>命令行</td>
+            <td>直接输入 R 命令，看运行结果和报错。初学者最常用。</td>
+          </tr>
+          <tr>
+            <td><code>Environment</code></td>
+            <td>工作区变量</td>
+            <td>显示当前创建的数据框、向量、模型等对象。</td>
+          </tr>
+          <tr>
+            <td><code>Files</code></td>
+            <td>项目文件</td>
+            <td>打开脚本、数据、报告；新建文件夹；删除/重命名文件。</td>
+          </tr>
+          <tr>
+            <td><code>Plots</code></td>
+            <td>图表窗口</td>
+            <td>显示 <code>plot()</code>、ggplot 等生成的图。</td>
+          </tr>
+          <tr>
+            <td><code>Packages</code></td>
+            <td>R 包管理</td>
+            <td>安装、更新、加载 R 包。</td>
+          </tr>
+          <tr>
+            <td><code>Help</code></td>
+            <td>帮助文档</td>
+            <td>查函数用法，例如 <code>?plot</code>。</td>
+          </tr>
+          <tr>
+            <td><code>Viewer</code></td>
+            <td>预览窗口</td>
+            <td>预览 HTML、Shiny、Quarto 输出。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>第一步：打开或新建项目</h2>
+      <ol>
+        <li>点击菜单 <code>File</code>。</li>
+        <li>已有项目选 <code>Open Project...</code>；新项目选 <code>New Project...</code>。</li>
+        <li>看到右上角项目名后，说明当前工作目录已经切到这个项目。</li>
+      </ol>
+      <div class="ok">
+        建议以后都用 <code>.Rproj</code> 打开项目。这样数据、脚本、报告都在同一个目录，路径不容易乱。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>第二步：写脚本并运行</h2>
+      <p>打开 <code>analysis.R</code> 后，左上就是 Source。脚本里定义了一个 <code>sales</code> 数据框，然后打印数据并画图。</p>
+      <div class="shot">
+        <img src="rstudio使用教程截图/02-source-editor-dpiaware.png" alt="RStudio Source 编辑器截图">
+        <div class="caption">Source 面板里可以写 R 脚本；右上角的 Run 按钮用于运行当前行或选中的代码。</div>
+      </div>
+      <ol>
+        <li>把光标放在某一行，点击 <code>Run</code>，只运行这一行。</li>
+        <li>选中多行后点击 <code>Run</code>，运行选中代码。</li>
+        <li>也可以在 Console 输入 <code>source("analysis.R")</code>，一次运行整个脚本。</li>
+      </ol>
+      <div class="callout">
+        如果运行后右上角 Environment 还是空的，通常是脚本没有真正跑到创建对象的那几行，或者焦点还停在别的软件窗口。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>第三步：看变量、数据和图</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>你想做什么</th>
+            <th>点哪里</th>
+            <th>常用命令</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>看当前有哪些对象</td>
+            <td>右上 <code>Environment</code></td>
+            <td><code>ls()</code></td>
+          </tr>
+          <tr>
+            <td>查看数据表</td>
+            <td>Environment 中点数据框名字</td>
+            <td><code>View(sales)</code></td>
+          </tr>
+          <tr>
+            <td>看前几行</td>
+            <td>Console</td>
+            <td><code>head(sales)</code></td>
+          </tr>
+          <tr>
+            <td>出图</td>
+            <td>右下 <code>Plots</code></td>
+            <td><code>plot(sales$users, sales$revenue)</code></td>
+          </tr>
+          <tr>
+            <td>查函数帮助</td>
+            <td>右下 <code>Help</code></td>
+            <td><code>?plot</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>第四步：生成 Quarto 报告</h2>
+      <p>本演示项目里有 <code>report.qmd</code>。这是 Quarto 报告文件，适合把代码、文字、图表放在一起，生成 HTML/PDF/Word。</p>
+      <ol>
+        <li>在右下 <code>Files</code> 里点击 <code>report.qmd</code>。</li>
+        <li>打开后，Source 顶部通常会出现 <code>Render</code> 按钮。</li>
+        <li>点击 <code>Render</code>，生成 HTML 报告。</li>
+        <li>输出结果一般会在 <code>Viewer</code> 或文件目录里出现。</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>常用菜单中文速查</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>菜单</th>
+            <th>中文理解</th>
+            <th>什么时候用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>File</code></td><td>文件</td><td>新建脚本、打开项目、保存文件。</td></tr>
+          <tr><td><code>Edit</code></td><td>编辑</td><td>复制、查找、替换、撤销。</td></tr>
+          <tr><td><code>Code</code></td><td>代码</td><td>运行代码、格式化代码、插入代码块。</td></tr>
+          <tr><td><code>View</code></td><td>视图</td><td>切换面板、缩放 Source/Console/Files。</td></tr>
+          <tr><td><code>Plots</code></td><td>图表</td><td>导出图、清空图、缩放图。</td></tr>
+          <tr><td><code>Session</code></td><td>会话</td><td>重启 R、设置工作目录、清空环境。</td></tr>
+          <tr><td><code>Build</code></td><td>构建</td><td>开发 R 包时检查、构建、安装。</td></tr>
+          <tr><td><code>Debug</code></td><td>调试</td><td>断点、单步运行、排查错误。</td></tr>
+          <tr><td><code>Tools</code></td><td>工具</td><td>全局设置、安装包、终端、版本控制。</td></tr>
+          <tr><td><code>Help</code></td><td>帮助</td><td>看文档、快捷键、RStudio 版本信息。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>接下来应该补的截图</h2>
+      <p>这一版已经解决了“截图不全”和“界面没有汉化到底怎么回事”的问题，但还没有把每个按钮都单独截图。下一版应继续补：</p>
+      <ul>
+        <li><span class="tag">数据导入</span> <code>Import Dataset</code> 导入 CSV。</li>
+        <li><span class="tag green">画图</span> <code>Plots</code> 面板生成、缩放、导出图片。</li>
+        <li><span class="tag">包管理</span> <code>Packages</code> 安装和加载包。</li>
+        <li><span class="tag amber">报告</span> <code>report.qmd</code> 的 Render 流程。</li>
+        <li><span class="tag red">报错排查</span> 常见错误如何从 Console 定位。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
+

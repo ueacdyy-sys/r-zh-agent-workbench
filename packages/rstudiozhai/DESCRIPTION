@@ -1,0 +1,19 @@
+Package: rstudiozhai
+Type: Package
+Title: Chinese AI Workbench Addin for RStudio Workflows
+Version: 0.1.0.9000
+Authors@R: person("R Zh Agent Workbench", "Contributors", email = "noreply@example.com", role = c("aut", "cre"))
+Author: R Zh Agent Workbench Contributors [aut, cre]
+Maintainer: R Zh Agent Workbench Contributors <noreply@example.com>
+Description: Provides a Chinese RStudio Addin workbench for environment diagnostics, AI provider routing, Quarto report drafting, connection snippets, project scanning, and governed task workflows. This package is an independent community project and is not affiliated with Posit Software, PBC.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests:
+    rstudioapi,
+    shiny,
+    miniUI,
+    testthat,
+    httr2,
+    jsonlite

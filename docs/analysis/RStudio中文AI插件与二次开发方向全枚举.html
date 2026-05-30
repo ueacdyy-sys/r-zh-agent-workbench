@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RStudio 中文 AI 插件与二次开发方向全枚举</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --ink: #17202a;
+      --muted: #5d6978;
+      --panel: #ffffff;
+      --line: #dbe3ec;
+      --navy: #102033;
+      --blue: #245d9f;
+      --teal: #0f6f78;
+      --green: #24724d;
+      --amber: #9a5a12;
+      --red: #a33a3a;
+      --violet: #624c8c;
+      --soft-blue: #edf5ff;
+      --soft-green: #f0f8f3;
+      --soft-amber: #fff8ea;
+      --soft-red: #fff4f4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      line-height: 1.62;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: var(--navy);
+      color: #fff;
+      border-bottom: 5px solid #2bb7a8;
+    }
+
+    .header-inner {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 28px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(30px, 5vw, 50px);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    li { margin: 4px 0; }
+
+    code {
+      font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+      background: #eef2f6;
+      border: 1px solid #d8e0e8;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-size: .92em;
+      color: #101827;
+    }
+
+    main {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 54px;
+    }
+
+    .subtitle {
+      max-width: 1030px;
+      margin-top: 12px;
+      color: #d8eef1;
+      font-size: 17px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .section {
+      margin-top: 16px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(22, 34, 48, .06);
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 12px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      padding: 14px;
+      background: #fbfcfe;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .callout {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid #b7dec6;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: var(--soft-green);
+    }
+
+    .warning {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid #ead1a6;
+      border-left: 5px solid var(--amber);
+      border-radius: 8px;
+      background: var(--soft-amber);
+    }
+
+    .risk {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid #efb7b7;
+      border-left: 5px solid var(--red);
+      border-radius: 8px;
+      background: var(--soft-red);
+    }
+
+    .muted { color: var(--muted); }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag.green {
+      color: var(--green);
+      border-color: #b7dec6;
+      background: #f2faf5;
+    }
+
+    .tag.blue {
+      color: var(--blue);
+      border-color: #b9cdeb;
+      background: #f2f6fd;
+    }
+
+    .tag.teal {
+      color: var(--teal);
+      border-color: #acd7dd;
+      background: #f0fbfc;
+    }
+
+    .tag.amber {
+      color: var(--amber);
+      border-color: #ead1a6;
+      background: #fff8e8;
+    }
+
+    .tag.red {
+      color: var(--red);
+      border-color: #efb7b7;
+      background: #fff4f4;
+    }
+
+    .tag.violet {
+      color: var(--violet);
+      border-color: #cbc0e6;
+      background: #f7f3ff;
+    }
+
+    .score {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e7f0fa;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1120px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: #edf3f8;
+      color: #233244;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .path {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .ladder {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .step {
+      min-height: 150px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 6px;
+      color: #1e3957;
+    }
+
+    .decision {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .verdict {
+      border-left: 5px solid var(--green);
+      background: var(--soft-green);
+    }
+
+    .foot {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .ladder,
+      .decision {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner,
+      main {
+        width: min(100% - 24px, 1280px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>RStudio 中文 AI 插件与二次开发方向全枚举</h1>
+      <p class="subtitle">结论：中文语言包和 AI 插件不冲突。正确产品不是“只翻译 UI”，也不是“塞一个聊天框”，而是把中文知识层、AI 编排层、RStudio 官方扩展面和本地中间件合成一个可安装、可测试、可企业化的工作台。</p>
+      <div class="meta-row">
+        <span class="pill">本机 RStudio 2026.05.0+218</span>
+        <span class="pill">本机 R 4.6.0</span>
+        <span class="pill">内置 Quarto 1.9.37</span>
+        <span class="pill">当前原型 rstudiozhai 0.0.1</span>
+        <span class="pill">报告日期 2026-05-30</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section verdict">
+      <h2>先给判断</h2>
+      <div class="decision">
+        <div>
+          <p><strong>AI 能力插件值得做，而且应该和中文语言包一起做。</strong>中文层负责降低门槛、统一术语、沉淀错误知识库和模板；AI 层负责解释、生成、诊断、修复、报告和自动化；中间件层负责把这些能力开放给外部 Agent、企业网关和本地模型。</p>
+          <p>最推荐的产品名仍然是：<strong>RStudio 中文 AI 工作台</strong>。它比“中文语言包”更大，比“AI 聊天插件”更实，也能避开 RStudio 本体全量汉化的高风险。</p>
+        </div>
+        <div class="card">
+          <h3>第一阶段只做这 5 个闭环</h3>
+          <ul>
+            <li>选中代码，中文解释和改进建议。</li>
+            <li>解释 R/RStudio/Quarto 报错。</li>
+            <li>环境体检，输出中文修复建议。</li>
+            <li>生成中文 Quarto 报告草稿。</li>
+            <li>Provider 配置，支持 OpenAI、本地模型、企业网关。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>开放接口边界</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>稳定主路：R 包 Addin</h3>
+          <p>官方 Addin 机制允许 R 函数从 RStudio 菜单、命令面板和快捷键里交互执行；Addin 可以是文本宏，也可以是 Shiny Gadget。</p>
+          <div class="tag-row">
+            <span class="tag green">第一优先级</span>
+            <span class="tag blue">适合插件分发</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>IDE API：rstudioapi</h3>
+          <p>可以读写当前文档、选区、项目、Terminal、Jobs、Viewer、Dialogs，并能执行多数 RStudio 命令。它是 AI 插件最关键的上下文入口。</p>
+          <div class="tag-row">
+            <span class="tag green">核心接口</span>
+            <span class="tag amber">命令执行异步</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>CLI：有但有限</h3>
+          <p><code>rstudio.exe --help</code> 本机实测只暴露版本、版本 JSON、诊断、日志级别/目录和少量启动延迟参数；真正的自动化应走 <code>Rscript</code>、Quarto CLI、Git CLI 和我们自己的 JSON CLI/MCP。</p>
+          <div class="tag-row">
+            <span class="tag amber">不能当完整 IDE 遥控器</span>
+          </div>
+        </article>
+      </div>
+      <div class="warning">
+        <strong>完整中文 UI 汉化不是第一阶段。</strong>本机和官方资料没有显示“安装 zh-CN 语言包即可全界面汉化”的稳定入口。可以研究源码本地化，但产品起步应先做中文增强插件和 AI 工作流。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>统一架构</h2>
+      <p class="muted">架构上要遵守一个原则：RStudio、Shiny、模型服务、Quarto、Git 都是外层细节；核心产品契约是“中文任务、上下文、工具调用、审计和结果”。</p>
+      <div class="ladder">
+        <div class="step">
+          <b>1. RStudio 入口层</b>
+          Addin 菜单、命令面板、快捷键、Viewer、当前文档、选区、项目路径。
+        </div>
+        <div class="step">
+          <b>2. 中文知识层</b>
+          术语表、命令索引、错误模式、教程模板、中文提示词规范。
+        </div>
+        <div class="step">
+          <b>3. AI 编排层</b>
+          任务契约、上下文裁剪、Provider 路由、模型探测、输出校验。
+        </div>
+        <div class="step">
+          <b>4. 执行工具层</b>
+          Rscript、Quarto、R CMD check、Git、数据库连接、文件生成。
+        </div>
+        <div class="step">
+          <b>5. 中间件层</b>
+          JSON CLI、本地 HTTP、stdio MCP、企业网关、任务队列。
+        </div>
+        <div class="step">
+          <b>6. 治理层</b>
+          权限白名单、人工确认、密钥保护、审计日志、策略包。
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>开发方向全枚举</h2>
+      <p class="muted">这里把可做方向尽量展开，按优先级和风险排序。P0/P1 是短期值得做的产品；P2 是扩展和商业化；P3 是深水区或暂不建议优先投入。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>级别</th>
+              <th>方向</th>
+              <th>可以做成什么</th>
+              <th>主要接口</th>
+              <th>商业/产品价值</th>
+              <th>风险</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>中文 AI 工作台</td>
+              <td>统一入口：解释代码、解释报错、生成测试、生成报告、总结项目、配置模型。</td>
+              <td>Addin、rstudioapi、Shiny/miniUI、Provider adapter。</td>
+              <td><span class="tag green">主产品</span> 用户感知最强。</td>
+              <td>要控制隐私、改文件确认和模型幻觉。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>中文增强包</td>
+              <td>中文术语表、RStudio 命令索引、常见错误解释、中文教程和模板。</td>
+              <td>Addin、Snippets、Project Templates、CSV/YAML 知识库。</td>
+              <td><span class="tag green">低风险入口</span> 与 AI 共用知识资产。</td>
+              <td>单独做会显得轻，必须绑定工作流。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>AI Provider 插件层</td>
+              <td>OpenAI、本地模型、Ollama/vLLM/LiteLLM、企业内网代理统一接入。</td>
+              <td>R HTTP 客户端、环境变量、会话配置、模型探测。</td>
+              <td><span class="tag green">基础设施</span> 决定可扩展性。</td>
+              <td>不能泄露密钥；第三方响应必须校验。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>环境体检与修复建议</td>
+              <td>检查 R、Rtools、包库、CRAN 镜像、Quarto、Git、Python、PATH、RStudio 日志。</td>
+              <td>Rscript、rstudio.exe 诊断、Quarto CLI、系统命令。</td>
+              <td><span class="tag green">新手刚需</span> 也适合企业排障。</td>
+              <td>Windows/macOS/Linux 差异要分层处理。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>选区代码解释与改写</td>
+              <td>解释选中 R/Python/SQL/Quarto 代码，给中文注释、改写建议和风险提示。</td>
+              <td>getActiveDocumentContext、insertText、modifyRange。</td>
+              <td><span class="tag green">最小可演示闭环</span></td>
+              <td>默认不直接覆盖；先给预览。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P0</span></td>
+              <td>报错解释器</td>
+              <td>解析 Console、R CMD check、Quarto render、包安装错误，给中文原因和命令。</td>
+              <td>Console/Terminal 输出、错误库、AI Provider。</td>
+              <td><span class="tag green">高频痛点</span></td>
+              <td>必须区分猜测与确定结论。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>Quarto 中文报告工厂</td>
+              <td>从脚本/数据生成 qmd，渲染 HTML/PDF/Word/演示，支持中文模板。</td>
+              <td>Quarto CLI、Jobs、Project Templates。</td>
+              <td><span class="tag blue">强交付</span> 很适合展示。</td>
+              <td>PDF 依赖 TinyTeX/字体，需体检。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>R 包开发助手</td>
+              <td>生成 roxygen2 文档、testthat 测试、DESCRIPTION 建议、NAMESPACE 检查、R CMD check 中文解释。</td>
+              <td>devtools、testthat、roxygen2、R CMD。</td>
+              <td><span class="tag blue">开发者高价值</span></td>
+              <td>需避免自动发布或自动改版本。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>项目模板库</td>
+              <td>统计分析、课程实验、论文、R 包、Shiny、Plumber、企业报表项目脚手架。</td>
+              <td>Project Templates、usethis、renv。</td>
+              <td><span class="tag blue">可积累模板市场</span></td>
+              <td>模板质量决定复购。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>代码片段与快捷命令包</td>
+              <td>dplyr、ggplot、Shiny、Quarto、建模、数据清洗的中文 snippets 和 Addin 快捷按钮。</td>
+              <td>Snippets、Addin、Command Palette。</td>
+              <td><span class="tag blue">低成本高频</span></td>
+              <td>内容维护成本低但差异化有限。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>数据导入与清洗向导</td>
+              <td>CSV/Excel/数据库导入、编码识别、列类型推断、缺失值和异常值处理，生成可复现 R 脚本。</td>
+              <td>readr、readxl、DBI、Shiny UI。</td>
+              <td><span class="tag blue">业务用户高频</span></td>
+              <td>真实数据脏场景多，需要迭代样本库。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>数据库连接插件</td>
+              <td>SQLite/PostgreSQL/ODBC/DuckDB/企业数据库连接模板、SQL 中文解释、连接安全检查。</td>
+              <td>Connections Snippets、Connections Contract、DBI。</td>
+              <td><span class="tag blue">企业方向</span></td>
+              <td>密码和权限必须安全处理。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>AI 数据分析代理</td>
+              <td>自然语言生成分析计划，运行 R 脚本，读取结果，自我修复，输出图表和报告。</td>
+              <td>Jobs、Rscript、Quarto、Provider adapter。</td>
+              <td><span class="tag violet">高天花板</span></td>
+              <td>执行动作要白名单和人工确认。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>统计方法审查器</td>
+              <td>检查用户代码里的统计假设、样本量、模型选择、变量处理和结论表达。</td>
+              <td>AI Provider、项目扫描、R 模型对象摘要。</td>
+              <td><span class="tag blue">科研和教学强</span></td>
+              <td>必须给不确定性，不做绝对结论。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>可视化助手</td>
+              <td>ggplot 图表向导、配色、中文标题、论文图导出、图表解读和改进建议。</td>
+              <td>ggplot2、Plots、Viewer、svglite/ragg。</td>
+              <td><span class="tag blue">体验明显</span></td>
+              <td>需要审美模板和导出兼容。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>教学与学习插件</td>
+              <td>中文练习题、逐行解释、课堂项目模板、学生作业检查、错误讲解。</td>
+              <td>learnr、Quarto、Addin、Viewer。</td>
+              <td><span class="tag blue">教育产品</span></td>
+              <td>内容体系要持续建设。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>Git 协作助手</td>
+              <td>中文 commit 草稿、diff 摘要、冲突解释、分支规范检查、README 生成。</td>
+              <td>Git CLI、Terminal、rstudioapi。</td>
+              <td><span class="tag blue">团队实用</span></td>
+              <td>不自动 commit/push，除非用户明确确认。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P1</span></td>
+              <td>Shiny/Plumber 开发助手</td>
+              <td>脚手架、运行检查、UI 文案、API 文档、部署前体检。</td>
+              <td>Shiny、Plumber、rsconnect、RStudio Run 命令。</td>
+              <td><span class="tag blue">应用开发方向</span></td>
+              <td>依赖包较多，需环境检测。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>部署发布助手</td>
+              <td>Shiny、Quarto、R Markdown、Plumber 的依赖扫描、发布检查、rsconnect 向导。</td>
+              <td>rsconnect、renv、Quarto CLI、Posit Connect。</td>
+              <td><span class="tag teal">生产化价值</span></td>
+              <td>账号和企业平台差异明显。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>Python/reticulate 助手</td>
+              <td>检查 Python、虚拟环境、Jupyter、reticulate 绑定，生成中文修复建议。</td>
+              <td>reticulate、Python CLI、Terminal。</td>
+              <td><span class="tag teal">跨生态</span></td>
+              <td>conda/venv/pyenv 路径复杂。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>renv 与依赖治理</td>
+              <td>项目依赖锁定、包版本冲突解释、镜像建议、离线包缓存、团队复现报告。</td>
+              <td>renv、installed.packages、Rprofile、包仓库配置。</td>
+              <td><span class="tag teal">企业痛点</span></td>
+              <td>要兼容 CRAN、Bioconductor、私有仓库。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>企业策略与审计</td>
+              <td>敏感信息扫描、AI 调用审计、执行白名单、数据路径规范、日志脱敏。</td>
+              <td>策略文件、审计 JSONL、项目扫描、Provider adapter。</td>
+              <td><span class="tag teal">付费点</span></td>
+              <td>必须默认安全，日志不记录密钥和正文。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>本地 JSON CLI</td>
+              <td>把诊断、知识检索、项目扫描、AI 任务、Quarto 草稿封装成稳定 JSON 命令。</td>
+              <td>Rscript、PowerShell、Quarto、Git。</td>
+              <td><span class="tag violet">中间件基础</span></td>
+              <td>输入输出契约要稳定，错误结构统一。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>MCP Server</td>
+              <td>让 Codex/Claude/Desktop Agent 调用 R 项目工具：扫描、诊断、渲染、测试、知识查询。</td>
+              <td>stdio JSON-RPC、Rscript adapters、allowlist。</td>
+              <td><span class="tag violet">前沿入口</span></td>
+              <td>权限和长任务管理要谨慎。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>本地 HTTP 服务</td>
+              <td>给其他桌面软件、Web UI 或企业系统提供 R 项目诊断和执行 API。</td>
+              <td>Plumber 或 Node/TypeScript + R worker。</td>
+              <td><span class="tag violet">平台化</span></td>
+              <td>端口、认证、跨域、进程回收要处理。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>企业模型网关</td>
+              <td>统一接入内网模型、审计、配额、模型探测、健康检查、失败修复建议。</td>
+              <td>OpenAI-compatible API、Provider registry、模型探测。</td>
+              <td><span class="tag teal">企业版核心</span></td>
+              <td>网络、证书、代理和鉴权复杂。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>工作流录制器</td>
+              <td>记录 RStudio 命令流，生成中文教程、自动化脚本或新人训练材料。</td>
+              <td>registerCommandStreamCallback、executeCommand。</td>
+              <td><span class="tag teal">差异化强</span></td>
+              <td>命令异步执行，不能保证完成状态。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>数据资产浏览器</td>
+              <td>把本地文件夹、SQLite、DuckDB、API 数据源包装进 Connections Pane 或工作台面板。</td>
+              <td>Connections Contract、DBI、duckdb、pins。</td>
+              <td><span class="tag teal">企业数据入口</span></td>
+              <td>权限、数据预览和性能要控制。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>主题字体与可访问性包</td>
+              <td>中文友好字体、投影模式、低视力模式、代码主题、编辑器推荐设置。</td>
+              <td>Theme、Preferences、keybindings。</td>
+              <td><span class="tag teal">体验补强</span></td>
+              <td>单独做商业价值有限。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>插件市场/模板市场</td>
+              <td>管理模板、snippets、报告主题、企业规则包、教学包，一键安装和更新。</td>
+              <td>R 包仓库、JSON manifest、Addin 安装器。</td>
+              <td><span class="tag teal">生态化</span></td>
+              <td>需要签名、版本和兼容性策略。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P2</span></td>
+              <td>CI/教学批改服务</td>
+              <td>从 RStudio 项目生成测试、跑测试、渲染报告、给作业反馈。</td>
+              <td>testthat、R CMD check、Quarto、GitHub Actions。</td>
+              <td><span class="tag teal">教育和团队场景</span></td>
+              <td>要避免上传敏感数据。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P3</span></td>
+              <td>完整中文 UI 汉化</td>
+              <td>菜单、对话框、设置页、内置提示全面中文化。</td>
+              <td>RStudio 源码、本地化资源、构建链。</td>
+              <td><span class="tag red">只有验证后再做</span></td>
+              <td>AGPL、构建、签名、升级维护成本高。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P3</span></td>
+              <td>RStudio 本体 fork</td>
+              <td>深改 IDE、内置 AI 面板、定制发行版、企业预装能力。</td>
+              <td>RStudio 源码、Electron、GWT/C++/R session。</td>
+              <td><span class="tag red">重资产</span></td>
+              <td>除非已有明确市场和维护预算。</td>
+            </tr>
+            <tr>
+              <td><span class="score">P3</span></td>
+              <td>安装包资源注入</td>
+              <td>直接改 RStudio 安装目录资源、注入脚本或替换前端资源。</td>
+              <td>内部 Electron 资源。</td>
+              <td><span class="tag red">不建议</span></td>
+              <td>易坏、难升级、合规和安全风险高。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>AI 插件的差异化定位</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>不要正面做“另一个 Copilot”</h3>
+          <p>RStudio 已有 GitHub Copilot 集成，也有 Posit Assistant。我们的机会不是普通自动补全，而是中文、R/Quarto 工作流、本地模型、企业网关、审计和教学交付。</p>
+        </article>
+        <article class="card">
+          <h3>要做工作流，不做聊天框</h3>
+          <p>按钮应该对应真实任务：解释报错、生成测试、渲染报告、扫描项目、生成连接代码、运行体检。聊天只是交互方式之一，不是产品本体。</p>
+        </article>
+        <article class="card">
+          <h3>要做可替换模型层</h3>
+          <p>Provider 设计要允许 OpenAI、本地模型、企业内网代理、mock provider 同时存在。这样既能演示，也能进企业环境。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>中文语言包与 AI 插件的关系</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>共享资产</th>
+              <th>中文增强怎么用</th>
+              <th>AI 插件怎么用</th>
+              <th>为什么不冲突</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>术语表</td>
+              <td>解释 Console、Environment、Viewer、Jobs、Connections、Quarto 等概念。</td>
+              <td>提示词固定译法，让回答稳定专业。</td>
+              <td>中文层提供确定性，AI 层提供动态解释。</td>
+            </tr>
+            <tr>
+              <td>错误知识库</td>
+              <td>离线匹配常见 R/RStudio/Quarto 错误。</td>
+              <td>结合当前代码、环境和项目结构给修复步骤。</td>
+              <td>规则库负责可信底座，AI 负责上下文化。</td>
+            </tr>
+            <tr>
+              <td>项目模板</td>
+              <td>提供中文 README、目录结构、示例脚本。</td>
+              <td>按模板生成分析代码、测试和报告。</td>
+              <td>模板降低 AI 自由发挥，输出更可控。</td>
+            </tr>
+            <tr>
+              <td>命令索引</td>
+              <td>让用户用中文找到 RStudio 功能入口。</td>
+              <td>把自然语言映射为 Addin、脚本、Quarto 或 Git 动作。</td>
+              <td>它是未来自然语言操作 IDE 的路由表。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>当前原型状态</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>已安装产物</h3>
+          <p><code class="path">C:\Users\Administrator\Desktop\rstudio开发\rstudiozhai_0.0.1.tar.gz</code></p>
+          <p>本机 R 库中已安装 <code>rstudiozhai 0.0.1</code>，外层 tarball 已在 2026-05-30 12:12 刷新。</p>
+        </article>
+        <article class="card">
+          <h3>已有能力</h3>
+          <p>已有 Addin、环境诊断、上下文采集、本地中文 provider、OpenAI Responses provider、OpenAI-compatible Chat Gateway provider、Provider Registry、Ollama/LM Studio/Xinference/vLLM/LiteLLM/DeepSeek/DashScope/SiliconFlow/智谱/Moonshot/企业网关预设、Provider 兼容性矩阵、模型探测、Provider 联调报告、Quarto 草稿、项目模板、知识库、Connections、Snippets、JSON CLI、MCP 原型、策略审计和项目扫描。</p>
+        </article>
+        <article class="card">
+          <h3>本轮验证</h3>
+          <p><code>testthat</code>、base tests、Rd 解析、R 源码 ASCII 检查、<code>R CMD build</code>、<code>R CMD check</code>、<code>R CMD INSTALL</code> 均通过。</p>
+          <p>已安装包 smoke：<code>provider-compatibility</code> 返回 <code>ok=TRUE</code>，云端网关 5 行，包含 <code>dashscope_qwen</code>；MCP 工具包含 <code>rstudiozhai_provider_compatibility</code>。</p>
+        </article>
+      </div>
+      <div class="callout">
+        <strong>当前新增能力：</strong>Provider 兼容性矩阵、本地/企业网关联调报告和网关预设清单。它能把离线 provider、OpenAI Responses、本地网关、云端兼容网关、企业网关的能力差异结构化列出，也能汇总模型列表、base URL、扩展安装状态、环境诊断和中文修复建议。下一步更适合做真实本地模型或企业网关的实机联调记录。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>路线图</h2>
+      <div class="grid-4">
+        <article class="card">
+          <h3>阶段 1：可安装插件</h3>
+          <p>RStudio Addin、中文知识库、环境体检、mock/local provider、选区解释。</p>
+          <div class="tag-row"><span class="tag green">现在</span></div>
+        </article>
+        <article class="card">
+          <h3>阶段 2：真实 AI 接入</h3>
+          <p>Provider 配置、模型探测、企业网关、本地模型、输出预览、密钥保护。</p>
+          <div class="tag-row"><span class="tag blue">短期</span></div>
+        </article>
+        <article class="card">
+          <h3>阶段 3：工作流产品化</h3>
+          <p>Quarto 报告、数据清洗、R 包开发、教学插件、数据库连接、模板市场。</p>
+          <div class="tag-row"><span class="tag teal">中期</span></div>
+        </article>
+        <article class="card">
+          <h3>阶段 4：中间件与企业版</h3>
+          <p>JSON CLI、MCP、本地 HTTP、审计、策略、企业模型网关、离线部署。</p>
+          <div class="tag-row"><span class="tag violet">后期</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>参考资料</h2>
+      <ul>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html">RStudio Addins</a></li>
+        <li><a href="https://rstudio.github.io/rstudioapi/reference/index.html">rstudioapi Reference</a></li>
+        <li><a href="https://rstudio.github.io/rstudioapi/reference/executeCommand.html">rstudioapi executeCommand</a></li>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/productivity/project-templates.html">RStudio Project Templates</a></li>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/data/connection-snippets.html">RStudio Connection Snippets</a></li>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/tools/jobs.html">RStudio Jobs</a></li>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/tools/copilot.html">GitHub Copilot in RStudio</a></li>
+        <li><a href="https://docs.posit.co/ide/user/ide/guide/tools/posit-ai.html">Posit Assistant</a></li>
+        <li><a href="https://quarto.org/docs/cli/render.html">Quarto render CLI</a></li>
+        <li><a href="https://quarto.org/docs/cli/preview.html">Quarto preview CLI</a></li>
+      </ul>
+      <p class="foot">本页结合本机实测、官方文档和当前 <code>rstudiozhai</code> 原型状态整理。RStudio 本体内部接口只作为研究对象，不作为第一版产品契约。</p>
+    </section>
+  </main>
+</body>
+</html>

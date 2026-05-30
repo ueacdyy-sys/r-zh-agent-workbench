@@ -1,0 +1,6 @@
+^\.gitignore$
+^.*\.Rcheck$
+^.*\.tar\.gz$
+^tmp$
+^logs$
+^verification.*$

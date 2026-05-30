@@ -1,0 +1,1178 @@
+# from	to
+_File	文件
+_Edit	编辑
+_Code	代码
+_View	查看
+_Plots	绘图
+_Session	会话
+_Build	构建
+_Debug	调试
+_Profile	性能分析
+_Tools	工具
+_Help	帮助
+_Addins	插件
+_Memory	内存
+P_anes	窗格
+Show Other _Panes	显示其他窗格
+Set _Working Directory	设置工作目录
+Background _Jobs	后台任务
+_Version Control	版本控制
+_Workbench Jobs	工作台任务
+New _File	新建文件
+_Recent Files	最近文件
+Recent Pro_jects	最近项目
+_Import Dataset	导入数据集
+_New Session	新建会话
+_New Terminal	新建终端
+New _Project...	新建项目...
+_Open File...	打开文件...
+_Open Profile...	打开性能分析结果...
+_Open Profile in Browser	在浏览器中打开性能分析结果
+_Quit Session...	退出会话...
+_Save	保存
+_Save As Web Page...	另存为网页...
+_Close	关闭
+_Copy	复制
+_Paste	粘贴
+_Undo	撤销
+_Find...	查找...
+_Replace and Find	替换并查找
+_Use Selection for Find	用选中内容查找
+_Find in Console	在控制台中查找
+_Refresh Environment	刷新环境
+_Interrupt R	中断 R
+_Restart R	重启 R
+_Terminate R...	终止 R...
+_Suspend R Session	挂起 R 会话
+_Choose Directory...	选择目录...
+_Previous Plot	上一张图
+_Next Plot	下一张图
+_Zoom Plot...	放大绘图...
+_Remove Plot...	删除绘图...
+_Clear All...	全部清空...
+_Comment/Uncomment Lines	注释/取消注释行
+_Reindent Lines	重新缩进行
+_Go To Function Definition	转到函数定义
+_Run All Chunks Above	运行上方所有代码块
+_Insert Chunk	插入代码块
+_Insert Section...	插入章节...
+_Use Visual Editor	使用可视化编辑器
+_R Script	R 脚本
+_Quarto Document...	Quarto 文档...
+_Quarto Presentation...	Quarto 演示文稿...
+_C File	C 文件
+_C++ File	C++ 文件
+_CSS File	CSS 文件
+_Document	文档
+_Source	执行脚本
+_Knit Document	编织文档
+_Render Document	渲染文档
+_Compile PDF	编译 PDF
+_Compile Report...	编译报告...
+_Output Options...	输出选项...
+_Build	构建
+_Load All	加载全部
+_Test Package	测试包
+_Check Package	检查包
+_Clean All	全部清理
+_Clean Unused Packages...	清理未使用包...
+_Install Package	安装包
+_Initialize Packrat...	初始化 Packrat...
+_Continue	继续
+_Break in Code	在代码中中断
+_Finish Function/Loop	完成函数/循环
+_Stop Debugging	停止调试
+_Error Inspector	错误检查器
+_Start Profiling	开始性能分析
+_Profile Selected Line(s)	分析选中行性能
+_Word Count	字数统计
+_Preview Site	预览站点
+_View in Browser	在浏览器中查看
+_Start Background Job...	启动后台任务...
+_Clear Background Jobs	清空后台任务
+_Global Options...	全局选项...
+_Project Options...	项目选项...
+_Preferences...	偏好设置...
+_Terminal Options...	终端选项...
+_Modify Keyboard Shortcuts...	修改键盘快捷键...
+_Keyboard Shortcuts Help	键盘快捷键帮助
+_Edit Code Snippets...	编辑代码片段...
+_Manage Accounts...	管理账号...
+_Open Developer Console	打开开发者控制台
+_Write Diagnostics Report	写入诊断报告
+_Show Log Files	显示日志文件
+_Browse Addins...	浏览插件...
+_Browse Cheat Sheets...	浏览速查表...
+_RStudio IDE Cheat Sheet	RStudio IDE 速查表
+_Markdown Quick Reference	Markdown 快速参考
+_Roxygen Quick Reference	Roxygen 快速参考
+A_bout RStudio	关于 RStudio
+Accessibility _Help...	辅助功能帮助...
+Accessibility _Options...	辅助功能选项...
+Add Source Column	添加源列
+Add Secondary Repository	添加备用仓库
+Add Remote	添加远程仓库
+Add Remote...	添加远程仓库...
+Add Files or Folders	添加文件或文件夹
+Add more...	添加更多...
+Add new account	添加新账号
+Add environment variables...	添加环境变量...
+Add to user dictionary	添加到用户词典
+All	全部
+All Files	所有文件
+All Formats	所有格式
+All chunks	所有代码块
+Always save R scripts before sourcing	执行脚本前总是保存 R 脚本
+Always save files before build	构建前总是保存文件
+Always save history (even when not saving .RData)	总是保存历史记录（即使不保存 .RData）
+Always save history (even if not saving .RData):	总是保存历史记录（即使不保存 .RData）：
+Always use LF line-endings in Unix Makefiles	Unix Makefile 总是使用 LF 换行
+Always use --preclean when installing package.	安装包时总是使用 --preclean
+Appearance	外观
+Appearance Options...	外观选项...
+Appearance:	外观：
+Appearance: 	外观：
+Apparence	外观
+Application name:	应用名称：
+Application type:	应用类型：
+Applications Web avec _shiny	Shiny Web 应用
+API	API
+API name:	API 名称：
+Author	作者
+Author (optional):	作者（可选）：
+Auto Generate	自动生成
+Auto hide menu bar	自动隐藏菜单栏
+Auto-detect (recommended)	自动检测（推荐）
+Auto-detect code indentation	自动检测代码缩进
+Auto-detect indentation in files	自动检测文件缩进
+Auto-expand error tracebacks	自动展开错误回溯
+Auto-indent code after paste	粘贴后自动缩进代码
+Auto-insert matching parentheses and brackets	自动插入匹配括号
+Auto-refresh state from version control	自动刷新版本控制状态
+Automatic text wrapping (line breaks):	自动文本换行：
+Automatic text wrapping (line breaks): 	自动文本换行：
+Automatically activate project Python environments	自动激活项目 Python 环境
+Automatically activate project-local Python environments	自动激活项目本地 Python 环境
+Automatically display next edit suggestions in editor	在编辑器中自动显示下一步编辑建议
+Automatically expand tracebacks in error inspector	在错误检查器中自动展开回溯
+Automatically navigate editor to build errors	自动跳转到构建错误
+Automatically notify me of updates to RStudio	自动通知 RStudio 更新
+Automatically roxygenize when running:	运行时自动 roxygenize：
+Automatically run Setup chunk when needed	需要时自动运行 Setup 代码块
+Automatically save when editor loses focus	编辑器失去焦点时自动保存
+Automatically show next edit suggestions	自动显示下一步编辑建议
+Autosave	自动保存
+Autosave mode on idle	空闲时自动保存
+Available repositories:	可用仓库：
+Back	后退
+Bac_k	后退
+Background Jobs	后台任务
+Background Jobs Tab	后台任务标签页
+Backup unsaved changes	备份未保存更改
+Basic	基础
+Browse...	浏览...
+Browse Addins	浏览插件
+Browse Addins...	浏览插件...
+Browse Cheat Sheets...	浏览速查表...
+Build	构建
+Build & Reload	构建并重新加载
+Build Binary Package	构建二进制包
+Build Package Documentation	构建包文档
+Build package documentation	构建包文档
+Build Source Package	构建源码包
+Build Tools	构建工具
+Cancel	取消
+Check for Package Updates...	检查包更新...
+Check for Updates	检查更新
+Check for Updates...	检查更新...
+Check Package	检查包
+Choose Directory...	选择目录...
+Clean and Rebuild	清理并重新构建
+Clean All	全部清理
+Clear	清空
+Clear All	全部清空
+Clear All...	全部清空...
+Clear All Breakpoints	清除所有断点
+Clear Console	清空控制台
+Clear List	清空列表
+Clear Project List	清空项目列表
+Clear Terminal Buffer	清空终端缓冲区
+Clear Terminal Scrollback Buffer	清空终端滚动缓冲区
+Clear User Prefs	清空用户偏好
+Clear Workspace	清空工作区
+Clear Workspace...	清空工作区...
+Close	关闭
+Close All	全部关闭
+Close Project	关闭项目
+Close Terminal	关闭终端
+Close Window	关闭窗口
+Code	代码
+Code Options...	代码选项...
+Collapse	折叠
+Column	列
+Columns and Panes Layout	列与窗格布局
+Command Palette	命令面板
+Comment/Uncomment Lines	注释/取消注释行
+Commit	提交
+Commit...	提交...
+Configure Build Tools...	配置构建工具...
+Configure the application	配置应用
+Configure Application...	配置应用...
+Connections	连接
+Console	控制台
+Console Options...	控制台选项...
+Continue	继续
+Copilot Diagnostics	Copilot 诊断
+Copilot Options...	Copilot 选项...
+Copilot Sign In	Copilot 登录
+Copilot Sign Out	Copilot 退出登录
+Copy	复制
+Copy Path	复制路径
+Copy to Clipboard	复制到剪贴板
+Copy to Clipboard...	复制到剪贴板...
+Create	创建
+Create a git repository	创建 Git 仓库
+Create a New Project...	新建项目...
+Create a new Python script	创建新的 Python 脚本
+Create a new Quarto document	创建新的 Quarto 文档
+Create a new Quarto presentation	创建新的 Quarto 演示文稿
+Create a new R package	创建新的 R 包
+Create a new R script	创建新的 R 脚本
+Create a project	创建项目
+Create New Project	新建项目
+Create package based on source files:	基于源文件创建包：
+Create Project	创建项目
+Create project from:	项目创建来源：
+Create R Package	创建 R 包
+Creating project	正在创建项目
+Creating project...	正在创建项目...
+CSS File	CSS 文件
+Cut	剪切
+C File	C 文件
+C++ File	C++ 文件
+Data	数据
+Data Browser	数据浏览器
+Debug	调试
+Delete	删除
+Description	描述
+Diagnostics	诊断
+Diagnostics Report	诊断报告
+Diff	差异
+Dismiss Next Edit Suggestion	忽略下一步编辑建议
+Document	文档
+Documentation	R 文档
+D3 Script	D3 脚本
+Edit	编辑
+Edit Code Snippets...	编辑代码片段...
+Edit User Prefs File	编辑用户偏好文件
+Editor	编辑器
+Environment	环境
+Environment is empty	环境为空
+Error Inspector	错误检查器
+Execute	执行
+Export	导出
+Export...	导出...
+Export Plot	导出绘图
+File	文件
+File name	文件名
+File type	文件类型
+Files	文件
+Filter by file or function name	按文件或函数名筛选
+Find	查找
+Find...	查找...
+Find in Console	在控制台中查找
+Find in Files...	在文件中查找...
+Find Next	查找下一个
+Find Previous	查找上一个
+Finish Function/Loop	完成函数/循环
+Folding	代码折叠
+Folder	文件夹
+Format	格式
+Forward	前进
+From Excel...	从 Excel...
+From Local File...	从本地文件...
+From SAS...	从 SAS...
+From SPSS...	从 SPSS...
+From Stata...	从 Stata...
+From Text (base)...	从文本（base）...
+From Text (readr)...	从文本（readr）...
+From URL...	从 URL...
+Full Screen	全屏
+Functions	函数
+Git	版本控制
+Git/SVN Version Control Options...	Git/SVN 版本控制选项...
+Global Environment	全局环境
+Global Options...	全局选项...
+Go Home	回到主页
+Go to Current Directory	转到当前目录
+Go to file/function	转到文件/函数
+Go to File/Function	转到文件/函数
+Go To File/Function...	转到文件/函数...
+Go To Function Definition	转到函数定义
+Go to Line...	转到行...
+Header File	头文件
+Help	帮助
+Help Home	帮助主页
+Hide Posit Assistant Button	隐藏 Posit Assistant 按钮
+Hide Sidebar	隐藏侧边栏
+History	历史
+Home	主目录
+HTML File	HTML 文件
+Ignore	忽略
+Import Dataset	导入数据集
+Import Dataset from File...	从文件导入数据集...
+Import Dataset from SAS...	从 SAS 导入数据集...
+Import Data with readr	用 readr 导入数据
+Import Editor Contents...	导入编辑器内容...
+Insert Chunk	插入代码块
+Insert Roxygen Skeleton	插入 Roxygen 框架
+Insert Section...	插入章节...
+Install	安装
+Install and Restart	安装并重启
+Install Packages...	安装包...
+Interrupt Current Terminal	中断当前终端
+Interrupt R	中断 R
+JavaScript File	JavaScript 文件
+Jump To...	跳转到...
+Keyboard Shortcuts Help	键盘快捷键帮助
+Knit Document	编织文档
+Library	库
+List	列表
+Load All	加载全部
+Load History...	加载历史...
+Load Workspace...	加载工作区...
+Loaded	已加载
+Main	主界面
+Manage Accounts...	管理账号...
+Markdown File	Markdown 文件
+Markdown Quick Reference	Markdown 快速参考
+Memory Usage Report	内存使用报告
+Modified	修改时间
+Modify Keyboard Shortcuts...	修改键盘快捷键...
+More	更多
+Move...	移动...
+Move Focus to Terminal	将焦点移到终端
+Name	名称
+New File	新建文件
+New Folder	新建文件夹
+New Project	新建项目
+New Project...	新建项目...
+New Project Wizard	新建项目向导
+New R Script	新建 R 脚本
+New Session	新建会话
+New Terminal	新建终端
+Next Plot	下一张图
+Next Tab	下一个标签页
+Next Terminal	下一个终端
+No	否
+No addins found	未找到插件
+No file selected	未选择文件
+No results found	未找到结果
+Object Explorer	对象浏览器
+Objects	对象
+OK	确定
+On Error	出错时
+Open Developer Console	打开开发者控制台
+Open File	打开文件
+Open File...	打开文件...
+Open File in New Column...	在新列中打开文件...
+Open Profile...	打开性能分析结果...
+Open Profile in Browser	在浏览器中打开性能分析结果
+Open Project	打开项目
+Open Project...	打开项目...
+Open Project in New Session...	在新会话中打开项目...
+Open Source Components	开源组件
+Options	选项
+Output Options...	输出选项...
+Package	包
+Packages	包
+Packrat	Packrat 包管理
+Paste	粘贴
+Paste with Indent	按缩进粘贴
+Plots	绘图
+Plumber API...	Plumber API...
+Preferences...	偏好设置...
+Preview Site	预览站点
+Previous Plot	上一张图
+Previous Tab	上一个标签页
+Previous Terminal	上一个终端
+Print	打印
+Print...	打印...
+Profile	性能分析
+Profile Current Line or Selection	分析当前行或选区
+Profile Selected Line(s)	分析选中行性能
+Project Options...	项目选项...
+Project display name (defaults to folder name):	项目显示名称（默认文件夹名）：
+Project:	项目：
+Project: (None)	项目：（无）
+Pull Branches	拉取分支
+Pull with Rebase	拉取并变基
+Push Branch	推送分支
+Python Options...	Python 选项...
+Python Script	Python 脚本
+Quit R Session	退出 R 会话
+Quit Session...	退出会话...
+Quarto Document...	Quarto 文档...
+Quarto Presentation...	Quarto 演示文稿...
+R Documentation	R 文档
+R Help	R 帮助
+R HTML	R HTML 文档
+R Markdown	R Markdown
+R Markdown...	R Markdown...
+R Markdown Options...	R Markdown 选项...
+R Notebook	R 笔记本
+R Plumber API	R Plumber API
+R Presentation	R 演示文稿
+R Script	R 脚本
+Redo	重做
+Refresh	刷新
+Refresh Automatically	自动刷新
+Refresh Environment	刷新环境
+Refresh Find in Files	刷新文件查找
+Refresh Now	立即刷新
+Release Notes	发行说明
+Remove	删除
+Remove Entries...	删除条目...
+Remove Object	删除对象
+Remove Objects	删除对象
+Remove Plot	删除绘图
+Remove Plot...	删除绘图...
+Rename	重命名
+Rename in Scope...	在作用域内重命名...
+Rename Terminal	重命名终端
+Render Document	渲染文档
+Replace	替换
+Replace...	替换...
+Replace and Find	替换并查找
+Repository	仓库
+Restart R	重启 R
+Restart R and Run All Chunks	重启 R 并运行所有代码块
+Retry	重试
+Revert	还原
+Roxygen Quick Reference	Roxygen 快速参考
+Run	运行
+Run All	全部运行
+Run All Chunks Above	运行上方所有代码块
+Run Current Chunk	运行当前代码块
+Run Current Line	运行当前行
+Run Current Line or Selection	运行当前行或选区
+Run Profile	运行配置
+Run Selected Line(s)	运行选中行
+Run to Cursor	运行到光标处
+Save	保存
+Save All	全部保存
+Save All Source Documents	保存所有源文件
+Save As	另存为
+Save As...	另存为...
+Save as Image...	保存为图片...
+Save as PDF...	保存为 PDF...
+Save File - 	保存文件 - 
+Save History As...	历史另存为...
+Save Profile As...	性能分析结果另存为...
+Save Workspace As...	工作区另存为...
+Search Environment	搜索环境
+Search Help	搜索帮助
+Search R Help	搜索 R 帮助
+Search Results	搜索结果
+Select All	全选
+Select Current Scope	选择当前作用域
+Session	会话
+Session Info	会话信息
+Set As Working Directory	设为工作目录
+Set Working Directory	设置工作目录
+Shell...	Shell 命令行...
+Shell Script	Shell 脚本
+Shiny Web App...	Shiny Web 应用...
+Show All Panes	显示所有窗格
+Show Build Menu	显示构建菜单
+Show Code Menu	显示代码菜单
+Show Command Palette	显示命令面板
+Show Console Pane	显示控制台窗格
+Show Debug Menu	显示调试菜单
+Show Diagnostics	显示诊断
+Show Document Outline	显示文档大纲
+Show Edit Menu	显示编辑菜单
+Show Environment Pane	显示环境窗格
+Show File Menu	显示文件菜单
+Show Files Pane	显示文件窗格
+Show Help Menu	显示帮助菜单
+Show Hidden Files	显示隐藏文件
+Show Log Files	显示日志文件
+Show Other Panes	显示其他窗格
+Show Plots Menu	显示绘图菜单
+Show Plots Pane	显示绘图窗格
+Show Profile Menu	显示性能分析菜单
+Show Session Menu	显示会话菜单
+Show Source Pane	显示源代码窗格
+Show Toolbar	显示工具栏
+Show Tools Menu	显示工具菜单
+Show View Menu	显示查看菜单
+Show Viewer Pane	显示查看器窗格
+Shrink Selection	缩小选择
+Size	大小
+Source	执行脚本
+Source on Save	保存时执行
+Source options	执行选项
+Source Script	执行脚本
+Source the active document	执行当前文档
+Spelling Options...	拼写选项...
+SQL Script	SQL 脚本
+Stage	暂存
+Stan File	Stan 文件
+Start Background Job...	启动后台任务...
+Start Debugging	开始调试
+Start Profiling	开始性能分析
+Step	单步
+Step Into	步入
+Step Out	步出
+Step Over	步过
+Stop Debugging	停止调试
+Stop Profiling	停止性能分析
+Support	支持
+Sweave	Sweave 文档
+Sweave Options...	Sweave 选项...
+Switch Focus Source/Console	切换源代码/控制台焦点
+Terminal	终端
+Terminal Diagnostics...	终端诊断...
+Terminal Options...	终端选项...
+Terminate R	终止 R
+Terminate R...	终止 R...
+Test Package	测试包
+Text File	文本文件
+Text editor	文本编辑器
+To Files Pane Location	到文件窗格位置
+To Source File Location	到源文件位置
+Toggle Automatic Completions	切换自动补全
+Toggle Breakpoint	切换断点
+Topic	主题
+Tools	工具
+Tutorial	教程
+Undo	撤销
+Unstage	取消暂存
+Update	更新
+Update Credentials	更新凭据
+Update Packages...	更新包...
+Upload Files...	上传文件...
+Use Selection for Find	用选中内容查找
+Use Visual Editor	使用可视化编辑器
+Values	值
+Version	版本
+Version Control	版本控制
+Version Control Options...	版本控制选项...
+View	查看
+View All Prefs	查看所有偏好
+View FILE on GitHub	在 GitHub 查看文件
+View in Browser	在浏览器中查看
+View Object	查看对象
+Viewer	查看器
+Word Count	字数统计
+Workbench Jobs	工作台任务
+Working Directory	工作目录
+Working on it...	正在处理...
+Yes	是
+Zoom Console	放大控制台
+Zoom Environment	放大环境
+Zoom Files	放大文件
+Zoom Help	放大帮助
+Zoom In	放大
+Zoom Left / Center Column	放大左/中列
+Zoom Packages	放大包
+Zoom Plot...	放大绘图...
+Zoom Plots	放大绘图
+AI Assistant	AI 助手
+AI Assistant: Status	AI 助手：状态
+AI completions delay	AI 补全延迟
+AI Suggestion	AI 建议
+Assistant Options...	助手选项...
+Assistant: Accept Next Edit Suggestion	助手：接受下一步编辑建议
+Assistant: Accept Next Word	助手：接受下一个词
+Assistant: Check Status	助手：检查状态
+Assistant: Dismiss Next Edit Suggestion	助手：忽略下一步编辑建议
+Assistant: Request Completions	助手：请求补全
+Assistant: Request Suggestions	助手：请求建议
+Assistant: Show Diagnostics	助手：显示诊断
+Assistant: Sign In	助手：登录
+Assistant: Sign Out	助手：退出登录
+Assistant: Toggle Automatic Completions	助手：切换自动补全
+Ask	提问
+Ask before killing processes:	结束进程前询问：
+Accept Next Edit Suggestion	接受下一步编辑建议
+Accept Next Word	接受下一个词
+Accept the current assistant next edit suggestion, if any.	接受当前助手的下一步编辑建议（如果有）
+Accept the next word of the current assistant suggestion, if any.	接受当前助手建议的下一个词（如果有）
+Activate	激活
+Activate GitHub Copilot	激活 GitHub Copilot
+Allow automatic completions in console	允许在控制台自动补全
+Backend:	后端：
+Bring to Front	置于前台
+Chat backend	聊天后端
+Check Status	检查状态
+Checking for Posit Assistant installation...	正在检查 Posit Assistant 安装...
+Code assistant	代码助手
+Code Assistant	代码助手
+Connectez-vous	登录
+Copilot	 Copilot
+GitHub Copilot integration has been disabled by the administrator.	GitHub Copilot 集成已被管理员禁用。
+GitHub Copilot: Terms of Service	GitHub Copilot：服务条款
+Hide Posit Assistant Button	隐藏 Posit Assistant 按钮
+Index project files with AI assistant	用 AI 助手索引项目文件
+No code assistant is currently active. Select an assistant above to enable code suggestions and other AI features.	当前没有启用代码助手。请在上方选择助手以启用代码建议和其他 AI 功能。
+Posit AI Next Edit Suggestions	Posit AI 下一步编辑建议
+Posit Assistant	Posit Assistant
+Posit Assistant Not Enabled	Posit Assistant 未启用
+Posit Assistant is incompatible with your RStudio version. Please update Posit Assistant to the latest version.	Posit Assistant 与当前 RStudio 版本不兼容。请将 Posit Assistant 更新到最新版本。
+Request Code Suggestions	请求代码建议
+Request Completions	请求补全
+Request Suggestions	请求建议
+Restarting Posit Assistant...	正在重启 Posit Assistant...
+Select a chat provider in Tools -> Global Options... -> Assistant.	请在“工具 -> 全局选项... -> 助手”中选择聊天提供商。
+Select which AI assistant to use for code suggestions and assistance.	选择用于代码建议和辅助的 AI 助手。
+Show code suggestions:	显示代码建议：
+Show Copilot code suggestions:	显示 Copilot 代码建议：
+Show Posit Assistant	显示 Posit Assistant
+Sign In	登录
+Sign Out	退出登录
+Starting Posit Assistant...	正在启动 Posit Assistant...
+Status	状态
+Update Credentials	更新凭据
+Updating Posit Assistant...	正在更新 Posit Assistant...
+Use code assistant:	使用代码助手：
+You are not currently signed in.	你当前未登录。
+You are currently signed in as	你当前登录为
+By using GitHub Copilot, you agree to abide by their terms of service.	使用 GitHub Copilot 即表示你同意遵守其服务条款。
+General	常规
+Accessibility	辅助功能
+Code Editing	代码编辑
+Code Editor Tab	代码编辑器标签页
+Code Formatting	代码格式化
+Code Suggestions	代码建议
+Completion	补全
+Completion Delay	补全延迟
+Diagnostics R	R 诊断
+Display Math	显示数学公式
+Display render command in R Markdown tab	在 R Markdown 标签页显示渲染命令
+Display Source column	显示源代码列
+Display the Source column in the Packages pane	在包窗格中显示源代码列
+Editor content width (px):	编辑器内容宽度（像素）：
+Editor font	编辑器字体
+Editor font (loading...):	编辑器字体（加载中）：
+Editor font size (points)	编辑器字号（磅）
+Editor for code chunks in visual editing mode	可视化编辑模式中的代码块编辑器
+Editor line height	编辑器行高
+Editor scroll speed sensitivity	编辑器滚动速度灵敏度
+Editor scroll speed sensitivity:	编辑器滚动速度灵敏度：
+Editor Theme Preview	编辑器主题预览
+Editor theme:	编辑器主题：
+Editor:	编辑器：
+Global theme	全局主题
+Help font size:	帮助字号：
+Help panel font size (points)	帮助面板字号（磅）
+Help Pane	帮助窗格
+Packages Options...	包选项...
+R Markdown Options	R Markdown 选项
+Pane Layout	窗格布局
+Pane Layo_ut...	窗格布局...
+Pane Layout Options...	窗格布局选项...
+Layout of panes in the RStudio workbench.	RStudio 工作台窗格布局。
+Choose the layout of the panels in RStudio by selecting from the controls in each panel. Add up to three additional Source Columns to the left side of the layout. When a column is removed, all saved files within the column are closed and any unsaved files are moved to the main Source Pane.	通过每个面板里的控件选择 RStudio 面板布局。最多可在左侧添加三个额外源代码列。移除列时，该列内所有已保存文件会关闭，未保存文件会移到主源代码窗格。
+Console on Left	控制台在左侧
+Console on Right	控制台在右侧
+Console on _Left	控制台在左侧
+Console on _Right	控制台在右侧
+Console Output	控制台输出
+Console output (requires restart)	控制台输出（需要重启）
+Console command (requires restart)	控制台命令（需要重启）
+Source Column	源代码列
+Add Source File	添加源文件
+Add Column	添加列
+Remove Column	删除列
+Project Options	项目选项
+Project _Setup...	项目设置...
+Project build tools:	项目构建工具：
+Project directory	项目目录
+Project directory name:	项目目录名：
+Project folder	项目文件夹
+Project Library	项目库
+Project Type	项目类型
+Project working directory:	项目工作目录：
+Projects	项目
+Default character encoding	默认字符编码
+Default Chunk Options	默认代码块选项
+Default LaTeX program	默认 LaTeX 程序
+Default new project location	默认新项目位置
+Default open project location	默认打开项目位置
+Default Output Format:	默认输出格式：
+Default project user data directory	默认项目用户数据目录
+Default Sweave engine	默认 Sweave 引擎
+Default text encoding:	默认文本编码：
+Default version of R:	默认 R 版本：
+Default working directory (when not in a project):	默认工作目录（不在项目中时）：
+Default working directory for background jobs	后台任务默认工作目录
+Default working directory in background job dialog.	后台任务对话框中的默认工作目录。
+Line ending conversion:	换行符转换：
+Line ending format	换行符格式
+Line height (%):	行高（%）：
+Line Wrapping	自动换行
+Margin column	边距列
+Indent text	缩进文本
+Indent, unindent lines	缩进/取消缩进行
+Indentation guides	缩进参考线
+Insert matching parens/quotes	插入匹配括号/引号
+Insert parentheses after function completions	函数补全后插入括号
+Insert parentheses after functions	函数后插入括号
+Insert spaces around = in R code	在 R 代码中的 = 周围插入空格
+Insert spaces around equals for argument completions	参数补全时在等号周围插入空格
+Insert spaces for tab	用空格代替 Tab
+Allow drag and drop of text	允许拖放文本
+Allow scroll past end of document	允许滚动超过文档末尾
+Allow source columns	允许源代码列
+Always enable Rnw concordance (required for synctex)	总是启用 Rnw concordance（synctex 需要）
+Always except for list	总是启用，列表除外
+Automatically refresh VCS status?	自动刷新版本控制状态？
+Enable / Disable Announcements	启用/禁用公告
+Enable chunk background highlight	启用代码块背景高亮
+Enable code snippets	启用代码片段
+Enable data import	启用数据导入
+Enable diagnostics within R function calls	在 R 函数调用内启用诊断
+Enable dragging text in code editor	启用代码编辑器文本拖拽
+Enable editor fonts on RStudio Server	在 RStudio Server 启用编辑器字体
+Enable hyperlink highlighting in editor	在编辑器中启用超链接高亮
+Enable packages pane	启用包窗格
+Enable preview of named and hexadecimal colors	启用命名颜色和十六进制颜色预览
+Enable publishing documents, apps, and APIs	启用文档、应用和 API 发布
+Enable publishing to Posit Connect	启用发布到 Posit Connect
+Enable Python integration	启用 Python 集成
+Enable Rnw concordance	启用 Rnw concordance
+Enable session protocol debug logging showing all session requests and events	启用会话协议调试日志，显示所有会话请求和事件
+Enable shell escape commands	启用 shell escape 命令
+Enable soft-wrapping of console output	启用控制台输出软换行
+Enable support for screen readers	启用屏幕阅读器支持
+Enable Terminal hooks	启用终端钩子
+Enable terminal Python integration	启用终端 Python 集成
+Enable the Packages pane	启用包窗格
+Enable version control if available	可用时启用版本控制
+Enable version control interface for RStudio projects	为 RStudio 项目启用版本控制界面
+Enable X11 clipboard monitoring	启用 X11 剪贴板监控
+Enabled Terminal hooks? Required for Python terminal integration, which places the active version of Python on the PATH in new Terminal sessions.	启用终端钩子？Python 终端集成需要它，会把当前 Python 版本加入新终端会话的 PATH。
+Environment variables	环境变量
+Environment variables which should be ignored when tracking changed to environment variables within a Terminal. Environment variables in this list will not be saved when a Terminal instance is saved and restored.	在跟踪终端环境变量变化时要忽略的环境变量。此列表中的环境变量不会在终端实例保存和恢复时保存。
+Files always shown in the Files Pane	文件窗格中始终显示的文件
+Keyboard idle time (ms):	键盘空闲时间（毫秒）：
+Keyboard Shortcut Quick Reference	键盘快捷键快速参考
+Keyboard Shortcuts	键盘快捷键
+Keyboard Shortcuts...	键盘快捷键...
+Python Interpreter	Python 解释器
+Python interpreter:	Python 解释器：
+Python Interpreters	Python 解释器
+Publishing Accounts	发布账号
+Publishing content	正在发布内容
+Publishing plots	正在发布绘图
+Publishing to Posit Connect is disabled in the Publishing options.	发布选项中已禁用发布到 Posit Connect。
+Git executable:	Git 可执行文件：
+Git Diff	Git 差异
+Git Tab	Git 标签页
+Build All	构建全部
+Build a binary package	构建二进制包
+Build a source package	构建源码包
+Build all	构建全部
+Build Book	构建书籍
+Build book options	构建书籍选项
+Build Tab	构建标签页
+Build tools can only be configured from within an RStudio project.	构建工具只能在 RStudio 项目内配置。
+Build web applications with Shiny	用 Shiny 构建 Web 应用
+Build Website	构建网站
+Building sites	正在构建站点
+Install Missing Packages	安装缺失包
+Install More Languages...	安装更多语言...
+Install R package dependencies one at a time	逐个安装 R 包依赖
+Install R packages	安装 R 包
+Install Required Packages	安装必需包
+Installation Complete	安装完成
+Installation Failed	安装失败
+Installing Posit Assistant...	正在安装 Posit Assistant...
+Installing learnr...	正在安装 learnr...
+Installing shiny...	正在安装 shiny...
+Choose	选择
+Choose Account Type	选择账号类型
+Choose Destination	选择目标
+Choose Encoding	选择编码
+Choose Image	选择图片
+Choose Primary Repository	选择主仓库
+Choose Working Directory	选择工作目录
+Change	更改
+Change All	全部更改
+Change R Version	更改 R 版本
+Change terminal session name	更改终端会话名称
+Change to:	更改为：
+Change working directory to location of Files pane	将工作目录更改为文件窗格位置
+Change working directory to path of active document	将工作目录更改为活动文档路径
+Change working directory to project root directory	将工作目录更改为项目根目录
+Clear All Breakpoints...	清除所有断点...
+Clear Build Pane Output	清空构建窗格输出
+Clear Help History	清空帮助历史
+Clear Preferences	清空偏好设置
+Clear Recently Executed Command List	清空最近执行命令列表
+Clear Selection	清空选择
+Clear Viewer	清空查看器
+Close All Documents	关闭所有文档
+Close All E_xcept Current	关闭除当前外全部
+Close All Terminals	关闭所有终端
+Close Current Document	关闭当前文档
+Close Current Project	关闭当前项目
+Close Other	关闭其他
+Close Other Documents	关闭其他文档
+Close Source Window	关闭源代码窗口
+Close and Discard Changes	关闭并放弃更改
+Close current terminal session	关闭当前终端会话
+Close document tab	关闭文档标签页
+Close find and replace	关闭查找和替换
+Close pane if shell exits cleanly	shell 正常退出时关闭窗格
+Close tab	关闭标签页
+Close Terminal pane after shell exit	shell 退出后关闭终端窗格
+Close the currently open project	关闭当前打开的项目
+Close the pane	关闭窗格
+Confirm Change	确认更改
+Confirm Change File Type	确认更改文件类型
+Confirm Clear History	确认清空历史
+Confirm Clear Preferences	确认清空偏好设置
+Confirm Delete	确认删除
+Confirm Load RData	确认加载 RData
+Confirm New Git Repository	确认新建 Git 仓库
+Confirm Open	确认打开
+Confirm Open Project	确认打开项目
+Confirm Remove Account	确认删除账号
+Confirm Remove Entries	确认删除条目
+Confirm Restart RStudio	确认重启 RStudio
+Confirm Toggle Screen Reader Support	确认切换屏幕阅读器支持
+Are you sure you want to cancel the replace? Changes already made will not be reverted.	确定要取消替换吗？已经完成的更改不会回滚。
+Are you sure you want to clear all history entries?	确定要清空所有历史条目吗？
+Are you sure you want to clear all of the items in the history?	确定要清空历史中的所有项目吗？
+Are you sure you want to clear your preferences? All RStudio settings will be restored to their defaults, and your R session will be restarted.	确定要清空偏好设置吗？所有 RStudio 设置将恢复默认值，并重启 R 会话。
+Are you sure you want to disconnect?	确定要断开连接吗？
+Are you sure you want to quit the R session?	确定要退出 R 会话吗？
+Are you sure you want to remove all the breakpoints in this project?	确定要删除此项目中的所有断点吗？
+Are you sure you want to remove completed background jobs from the list of jobs?\\n\\nOnce removed, background jobs cannot be recovered.	确定要从任务列表中删除已完成的后台任务吗？\\n\\n删除后无法恢复。
+Are you sure you want to remove the selected entries from the history?	确定要从历史中删除所选条目吗？
+Are you sure you want to remove this connection from the connection history?	确定要从连接历史中删除此连接吗？
+Are you sure you want to reset keyboard shortcuts to their default values? This action cannot be undone.	确定要将键盘快捷键重置为默认值吗？此操作无法撤销。
+Are you sure you want to restore the default pane and tab layout? This will reset all pane and tab layouts to their default values. This action cannot be undone.	确定要恢复默认窗格和标签页布局吗？这会将所有窗格和标签页布局重置为默认值。此操作无法撤销。
+Are you sure you want to terminate R?	确定要终止 R 吗？
+Changes to the selected file will be lost, including staged changes.\\n\\nAre you sure you want to continue?	所选文件的更改将丢失，包括已暂存更改。\\n\\n确定要继续吗？
+Changes to the selected file will be reverted.\\n\\nAre you sure you want to continue?	所选文件的更改将被还原。\\n\\n确定要继续吗？
+Changes to the selected files will be lost, including staged changes.\\n\\nAre you sure you want to continue?	所选文件的更改将丢失，包括已暂存更改。\\n\\n确定要继续吗？
+Changes to the selected files will be reverted.\\n\\nAre you sure you want to continue?	所选文件的更改将被还原。\\n\\n确定要继续吗？
+No Active Project	没有活动项目
+No Changes to File	文件没有更改
+No Changes to Revert	没有可还原的更改
+No code assistant is currently active. Select an assistant above to enable code suggestions and other AI-powered features.	当前没有启用代码助手。请在上方选择助手以启用代码建议和其他 AI 能力。
+No Conflicts Detected	未检测到冲突
+No Content Specified	未指定内容
+No Deployments Found	未找到部署
+No document tabs open	没有打开的文档标签页
+No environment variables are currently available.	当前没有可用环境变量。
+No Files Selected	未选择文件
+No history entries currently selected.	当前未选择历史条目。
+No Items Selected	未选择项目
+No LaTeX installation detected. Please install LaTeX before compiling.	未检测到 LaTeX 安装。请先安装 LaTeX 再编译。
+No more occurrences.	没有更多匹配项。
+No outline available	没有可用大纲
+No Parameters Defined	未定义参数
+No Running Deployments Found	未找到正在运行的部署
+No Selection Made	未做选择
+No Update Available	没有可用更新
+No unused packages were found in the library.	库中未找到未使用的包。
+Open a new R session	打开新的 R 会话
+Open a project	打开项目
+Open an existing file	打开已有文件
+Open an existing file in a new column	在新列中打开已有文件
+Open document outline by default	默认打开文档大纲
+Open Each File in New Columns	在新列中打开每个文件
+Open in Editor	在编辑器中打开
+Open Link (Ctrl+Click)	打开链接（Ctrl+单击）
+Open Markdown Quick Reference	打开 Markdown 快速参考
+Open New Terminal Here	在此处打开新终端
+Open Page with Web Browser	用浏览器打开页面
+Open Project with New R Session	用新 R 会话打开项目
+Open recent files	打开最近文件
+Open selected file(s)	打开所选文件
+Open Selected in Source Pane	在源代码窗格中打开所选项
+Open Source Component	打开源组件
+Remove Completed Background Jobs	删除已完成后台任务
+Remove Connection	删除连接
+Remove connection from the connection history	从连接历史中删除连接
+Remove Connection...	删除连接...
+Remove Current Plot...	删除当前绘图...
+Remove current viewer item	删除当前查看器项目
+Remove duplicate entries in history	删除历史中的重复条目
+Remove duplicates from console history	删除控制台历史中的重复项
+Remove Files or Folders	删除文件或文件夹
+Remove Inline Chunk Output	删除内联代码块输出
+Remove jobs	删除任务
+Remove Output	删除输出
+Remove package	删除包
+Remove Packages	删除包
+Remove the current plot	删除当前绘图
+Remove the selected history entries	删除所选历史条目
+Remove Theme	删除主题
+Restart Posit Assistant	重启 Posit Assistant
+Restart R Session	重启 R 会话
+Restart R Session and Clear Chunk Output	重启 R 会话并清空代码块输出
+Restart R Session and Run All Chunks	重启 R 会话并运行所有代码块
+Restart Required	需要重启
+Restarting R...	正在重启 R...
+Restarting RStudio	正在重启 RStudio
+Run .Rprofile on resume	恢复时运行 .Rprofile
+Run a background local job	运行本地后台任务
+Run a job on a cluster	在集群上运行任务
+What's New	新增功能
+RStudio Community Forum	RStudio 社区论坛
+Cheat Sheets	速查表
+Rainbow Parentheses	彩虹括号
+Rainbow Fenced Divs	彩虹围栏 Div
+Source File...	执行源文件...
+Open Help in Browser	在浏览器中打开帮助
+Community Forum	社区论坛
+Browse package	浏览包
+Browse package on CRAN	在 CRAN 浏览包
+Expand	展开
+Collapse All	全部折叠
+Expand All	全部展开
+Fold	折叠
+Unfold	展开
+Actual Size	实际大小
+Actual _Size	实际大小
+Zoom Out	缩小
+Zoom _Out	缩小
+Toggle Full Screen	切换全屏
+Toggle _Full Screen	切换全屏
+Show/Hide Sidebar	显示/隐藏侧边栏
+Show/Hide Sideb_ar	显示/隐藏侧边栏
+Hide Toolbar	隐藏工具栏
+Show Toolbar	显示工具栏
+Switch to Tab...	切换到标签页...
+Switch to Ta_b...	切换到标签页...
+Open First Tab	打开第一个标签页
+First Tab	第一个标签页
+_First Tab	第一个标签页
+Open Last Tab	打开最后一个标签页
+Last Tab	最后一个标签页
+_Last Tab	最后一个标签页
+Open Next Tab	打开下一个标签页
+Open Previous Tab	打开上一个标签页
+Next Tab	下一个标签页
+Previous Tab	上一个标签页
+Move Focus to Source	将焦点移到源代码
+Move Focus to Sou_rce	将焦点移到源代码
+Move Focus to Console	将焦点移到控制台
+Move Focus to _Console	将焦点移到控制台
+Move Focus to Console Panel	将焦点移到控制台面板
+Move Focus to _Console Panel	将焦点移到控制台面板
+Move Focus to Help	将焦点移到帮助
+Move Focus to Files	将焦点移到文件
+Move Focus to Plots	将焦点移到绘图
+Move Focus to Terminal	将焦点移到终端
+Move Focus to Source Column	将焦点移到源代码列
+Focus Console Output	聚焦控制台输出
+_Focus Console Output	聚焦控制台输出
+Focus Next Pane	聚焦下一个窗格
+Focus Previous Pane	聚焦上一个窗格
+Show History	显示历史
+Show Files	显示文件
+Show Plots	显示绘图
+Show Packages	显示包
+Show Help	显示帮助
+Show Viewer	显示查看器
+Show Source Cpp Pane	显示 Source Cpp 窗格
+Show Sou_rce Cpp	显示 Source Cpp
+Show Tutorial Pane	显示教程窗格
+Show Current Memory Usage	显示当前内存用量
+_Show Current Memory Usage	显示当前内存用量
+Toggle Memory Usage Display in Environment Pane	切换环境窗格内存用量显示
+Free Unused R Memory	释放未使用的 R 内存
+_Free Unused R Memory	释放未使用的 R 内存
+Memory Usage	内存用量
+Memory Usage Report	内存用量报告
+Memory Usage Report...	内存用量报告...
+Execute Next Line	执行下一行
+E_xecute Next Line	执行下一行
+Step Into Function	步入函数
+Step _Into Function	步入函数
+Step into the current function call	步入当前函数调用
+Exit debug mode	退出调试模式
+Debugging Help	调试帮助
+Profiling Help	性能分析帮助
+Message Only	仅显示消息
+_Message Only	仅显示消息
+Print the error message when an unhandled error occurs	发生未处理错误时打印错误消息
+Show the error inspector when an unhandled error occurs	发生未处理错误时显示错误检查器
+Toggle Rainbow Fenced Divs Mode	切换彩虹围栏 Div 模式
+Toggle Rainbow Parentheses Mode	切换彩虹括号模式
+Switch markdown editing mode	切换 Markdown 编辑模式
+RStudio IDE Cheat Sheet	RStudio IDE 速查表
+Data Transformation with dplyr	用 dplyr 做数据转换
+Data Visualization with ggplot2	用 ggplot2 做数据可视化
+List manipulation with purrr	用 purrr 处理列表
+Package Development with devtools	用 devtools 开发包
+Web Applications with shiny	用 shiny 开发 Web 应用
+Interfacing Spark with sparklyr	用 sparklyr 连接 Spark
+R Markdown Cheat Sheet	R Markdown 速查表
+R Markdown Reference Guide	R Markdown 参考指南
+Browse Cheat Sheets...	浏览速查表...
+_Browse Cheat Sheets...	浏览速查表...
+Browse available cheat sheets in your web browser	在浏览器中查看可用速查表
+Open RStudio IDE Cheat Sheet	打开 RStudio IDE 速查表
+Open Data Visualization Cheat Sheet	打开数据可视化速查表
+Open Data Import Cheat Sheet	打开数据导入速查表
+Open Package Development Cheat Sheet	打开包开发速查表
+Open Data Wrangling Cheat Sheet	打开数据整理速查表
+Open Data Transformation Cheat Sheet	打开数据转换速查表
+Open R Markdown Cheat Sheet	打开 R Markdown 速查表
+Open R Markdown Reference Guide	打开 R Markdown 参考指南
+Open Shiny Cheat Sheet	打开 Shiny 速查表
+Open Sparklyr Cheat Sheet	打开 Sparklyr 速查表
+Open Purrr Cheat Sheet	打开 Purrr 速查表
+RStudio Docs	RStudio 文档
+RStudio Documentation	RStudio 文档
+RStudio IDE Documentation	RStudio IDE 文档
+Support Posit	Posit 支持
+_Support Posit	Posit 支持
+Terminal Diagnostics	终端诊断
+Terminal Dia_gnostics	终端诊断
+Diagnostic du terminal	终端诊断
+_Diagnostic du terminal...	终端诊断...
+Open New Terminal at File Location	在文件位置打开新终端
+_Open New Terminal at File Location	在文件位置打开新终端
+Request Log	请求日志
+_Request Log	请求日志
+Dump Editor Contents	转储编辑器内容
+_Dump Editor Contents...	转储编辑器内容...
+Import Editor Contents	导入编辑器内容
+Collapse Fold	折叠当前代码块
+Collapse All Folds	折叠所有代码块
+Expand Fold	展开当前代码块
+Expand All Folds	展开所有代码块
+Code Completion	代码补全
+Compile PDF	编译 PDF
+Copy Lines Down	向下复制行
+Disconnect	断开连接
+Enable Prosemirror DevTools	启用 Prosemirror 开发工具
+Search in Build Pane	在构建窗格中搜索
+Show R Help	显示 R 帮助
+Show in new window	在新窗口中显示
+Insert Assignment Operator	插入赋值运算符
+Insert Pipe Operator	插入管道运算符
+Join Lines	合并行
+Jump to Matching Bracket	跳转到匹配括号
+Zoom Posit Assistant	放大 Posit Assistant
+Zoom Pos_it Assistant	放大 Posit Assistant
+Test	测试
+Toggle Visual Markdown Editor	切换可视化 Markdown 编辑器
+Go forward	前进
+View a larger version in a new window	在新窗口中查看大图
+Uninstall Posit Assistant	卸载 Posit Assistant
+Revert Changes	还原更改
+Go to to the definition of the currently selected function	转到当前所选函数的定义
+Go to the definition of the currently selected function	转到当前所选函数的定义
+Find Usages	查找用法
+Find _Usages	查找用法
+Run all chunks below the current one	运行当前代码块下方的所有代码块
+Run All C_hunks Below	运行下方所有代码块
+Execute Code up to Current Line	执行到当前行
+Run From _Beginning To Line	从开头运行到当前行
+Run from the beginning of the source file up through the current line	从源文件开头运行到当前行
+Run _Setup Chunk	运行 Setup 代码块
+Run Document	运行文档
+Run _Document	运行文档
+Run Function Definition	运行函数定义
+Run _Function Definition	运行函数定义
+Run Line(s) without moving cursor	运行行但不移动光标
+Run _Line(s) without moving cursor	运行行但不移动光标
+Run Next Chunk	运行下一个代码块
+Run _Next Chunk	运行下一个代码块
+Source Active File	执行当前文件
+Source Active File with Echo	执行当前文件并回显
+Source as Local Job	作为本地任务执行
+Source as Workbench Job	作为 Workbench 任务执行
+Open Source Component	打开源组件
+Open Source Components	打开源组件
+Open Source File	打开源文件
+Print Source Document	打印源文档
+Save Source Document	保存源文档
+Save Source Document As	源文档另存为
+Rename Source Document	重命名源文档
+Close Source Document	关闭源文档
+Close Other Source Documents	关闭其他源文档
+Close All Source Documents	关闭所有源文档
+Copy Source Document Path	复制源文档路径
+Open Next File on Filesystem	打开文件系统中的下一个文件
+Open Previous File on Filesystem	打开文件系统中的上一个文件
+Open Each File in Columns	在列中分别打开每个文件
+Open Files in Single Pane	在单一窗格打开文件
+Set Working Directory to Files Pane Location	将工作目录设为文件窗格位置
+Set Working Directory to Project Directory	将工作目录设为项目目录
+Set Working Directory to Source File Location	将工作目录设为源文件位置
+Clear Recent Files	清空最近文件
+Clear Recent Projects	清空最近项目
+Open Shared Project	打开共享项目
+Open Project in New Window	在新窗口中打开项目
+Share Project	共享项目
+New Source Column	新建源代码列
+Maximize Source	最大化源代码
+Zoom Current Pane	放大当前窗格
+End Zoom	结束放大
+Zoom Left Column	放大左列
+Zoom Right Column	放大右列
+Zoom Sidebar	放大侧边栏
+Adjust Left Splitter	调整左侧分隔条
+A_djust Left Splitter	调整左侧分隔条
+Adjust Right Splitter	调整右侧分隔条
+Ad_just Right Splitter	调整右侧分隔条
+Adjust Center Splitter	调整中间分隔条
+Adjust Center S_plitter	调整中间分隔条
+Adjust Source Column Splitter	调整源代码列分隔条
+Adjust Source Column Spli_tter	调整源代码列分隔条
+Adjust Sidebar Splitter	调整侧边栏分隔条
+Adjust _Sidebar Splitter	调整侧边栏分隔条
+Move Sidebar Location Left/Right	左右移动侧边栏位置
+Move Sidebar Left/Right	左右移动侧边栏
+Tab Key Always Moves Focus	Tab 键总是移动焦点
+_Tab Key Always Moves Focus	Tab 键总是移动焦点
+Focus Main Toolbar	聚焦主工具栏
+Show Shortcut Command	显示快捷命令
+Show DOM Elements	显示 DOM 元素
+_Show DOM Elements	显示 DOM 元素
+Toggle Editor Token Information	切换编辑器 Token 信息
+_Toggle Editor Token Information	切换编辑器 Token 信息
+Prosemirror DevTools	Prosemirror 开发工具
+_Prosemirror DevTools	Prosemirror 开发工具
+To Console	发送到控制台
+Send the selected commands to the R console (Enter)	将所选命令发送到 R 控制台（Enter）
+Send Command to Console	发送命令到控制台
+Send to _Console	发送到控制台
+To Source	插入到源代码
+Insert the selected commands into the current document (Shift+Enter)	将所选命令插入当前文档（Shift+Enter）
+Insert Command into Document	插入命令到文档
+Insert into _Source	插入到源代码
+Show In Context	在上下文中显示
+New Connection	新建连接
+New Connection...	新建连接...
+Create a new connection	创建新连接
+How to create new connections to data sources.	如何创建到数据源的新连接。
+Show Connections Pane	显示连接窗格
+Show Co_nnections	显示连接
+Find in Topic	在主题中查找
+Find next (Enter)	查找下一个（Enter）
+Find previous	查找上一个
+Search help	搜索帮助
+Help Tab	帮助标签页
+Help Tab Second	帮助标签页第二项
+Error installing learnr	安装 learnr 出错
+RStudio was unable to install the learnr package.	RStudio 无法安装 learnr 包。
+Error Loading Tutorial	加载教程出错
+Tutorial Pane	教程窗格
+Tutorial Tab	教程标签页
+Start Tutorial	开始教程
+[Untitled tutorial]	[未命名教程]
+[No description available.]	[没有可用说明。]
+Please wait while RStudio finishes indexing available tutorials...	请稍候，RStudio 正在完成可用教程索引...
+Loading tutorial...	正在加载教程...

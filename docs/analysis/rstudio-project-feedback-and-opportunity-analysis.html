@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RStudio 项目真实反馈与功能空缺深度分析</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #5c6870;
+      --line: #d8dee3;
+      --soft: #f5f7f8;
+      --panel: #ffffff;
+      --teal: #0f766e;
+      --amber: #a15c07;
+      --red: #b42318;
+      --green: #167245;
+      --blue: #2358a0;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: #eef2f3;
+      line-height: 1.65;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      padding: 28px 32px 22px;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 28px 56px;
+    }
+
+    h1, h2, h3 { line-height: 1.25; margin: 0; }
+    h1 { font-size: 30px; letter-spacing: 0; }
+    h2 { font-size: 23px; margin-top: 34px; padding-top: 8px; }
+    h3 { font-size: 17px; margin-top: 20px; }
+    p { margin: 9px 0; }
+    a { color: var(--blue); text-decoration: none; }
+    code {
+      font-family: Consolas, "Cascadia Mono", monospace;
+      background: #edf1f3;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 0.92em;
+    }
+
+    .subtitle {
+      max-width: 980px;
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: #34424a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+
+    .metric {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 6px 2px 0;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: #eef4f2;
+      color: #1d5f58;
+      font-size: 12px;
+    }
+
+    .warn { color: var(--amber); font-weight: 700; }
+    .danger { color: var(--red); font-weight: 700; }
+    .ok { color: var(--green); font-weight: 700; }
+    .blue { color: var(--blue); font-weight: 700; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 11px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f4f5;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .quote {
+      border-left: 4px solid var(--teal);
+      padding: 10px 13px;
+      background: #f2f8f7;
+      color: #24383a;
+      margin-top: 12px;
+    }
+
+    .formula {
+      border: 1px solid #c9d8d6;
+      background: #f7fbfa;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 150px 1fr 56px;
+      gap: 10px;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .track {
+      background: #e3e8eb;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 10px;
+      background: var(--teal);
+      border-radius: 999px;
+    }
+
+    .evidence-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .evidence-list li { margin: 5px 0; }
+
+    .screenshot {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 10px;
+      background: #ffffff;
+    }
+
+    .phase {
+      border-left: 5px solid var(--teal);
+      padding-left: 12px;
+      margin-top: 14px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 36px;
+      padding-top: 16px;
+    }
+
+    @media (max-width: 880px) {
+      header { padding: 24px 18px 18px; }
+      main { padding: 18px 14px 42px; }
+      .span-3, .span-4, .span-5, .span-6, .span-7, .span-8 { grid-column: span 12; }
+      .bar { grid-template-columns: 1fr; gap: 4px; }
+      th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RStudio 项目真实反馈与功能空缺深度分析</h1>
+    <p class="subtitle">这份报告不把“做过什么”当作成功，而是把项目过程中暴露出的真实反馈作为输入，反推 RStudio 生态里更值得做的产品空缺。核心判断：单纯汉化不是终局，真正机会在“中文数据分析交付层”和“RStudio AI/环境/数据中间件”。</p>
+    <div class="meta">
+      <span class="pill">分析时间：2026-05-30</span>
+      <span class="pill">工作区：C:\Users\Administrator\Desktop\rstudio开发</span>
+      <span class="pill">RStudio：2026.05.0+218</span>
+      <span class="pill">R：4.6.0</span>
+      <span class="pill">方法：第一性原理 + 项目证据</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>一、底层公式</h2>
+      <div class="formula">
+        RStudio 的用户价值 = 降低数据分析从“问题”到“可信交付物”的摩擦。<br>
+        产品机会 = 高频摩擦 × 当前 RStudio 没有闭环 × 我们能用插件/中间件低成本嵌入。
+      </div>
+      <p>因此，判断一个方向值不值得做，不看它是否炫，而看它是否能缩短这条链路：</p>
+      <p><code>数据接入 -> 环境可用 -> 写代码 -> 运行调试 -> 解释结果 -> 生成报告 -> 团队复用</code></p>
+      <p>本项目的真实反馈证明：用户不只要“入口存在”，而是要打开 RStudio 后肉眼可见、能理解、能继续完成工作的能力。</p>
+    </section>
+
+    <section>
+      <h2>二、项目真实反馈</h2>
+      <div class="grid">
+        <div class="card span-3">
+          <div class="metric">652</div>
+          <div class="label">已记录 AppCommand ID，说明 RStudio 命令面足够大，可做操作编排和宏记录。</div>
+        </div>
+        <div class="card span-3">
+          <div class="metric">4500</div>
+          <div class="label">剩余英文 return 字符串候选行数，说明“完全汉化”不是一次词表能解决的工程。</div>
+        </div>
+        <div class="card span-3">
+          <div class="metric">87</div>
+          <div class="label">RStudio session 侧 R 模块数量，功能面覆盖 Assistant、Jobs、Terminal、Connections 等。</div>
+        </div>
+        <div class="card span-3">
+          <div class="metric">4</div>
+          <div class="label">本项目已实际落过的扩展入口：Addin、Project Template、Connections、Snippets。</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>真实反馈</th>
+            <th>暴露的问题</th>
+            <th>对产品机会的启发</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>“打开 RStudio 本体，什么都没有变化。”</td>
+            <td>只做 Addin/R 包，不等于本体可见能力。用户验收的是界面和工作流，不是安装状态。</td>
+            <td>产品必须有明确首屏入口、状态反馈和可见收益。插件也要解决“用户找不到”的问题。</td>
+          </tr>
+          <tr>
+            <td>“这是二次开发，还是在原有基础上打插件？”</td>
+            <td>交付边界混乱：插件、补丁、本体二开、CLI 中间件被混在一起。</td>
+            <td>必须把产品线拆成三层：稳定插件、可控中间件、重型本体 fork。</td>
+          </tr>
+          <tr>
+            <td>“二级菜单、三级菜单、四级菜单还有英文。”</td>
+            <td>汉化不是词典任务，而是资源来源定位、动态 UI、静态 HTML、后端拼接字符串的组合问题。</td>
+            <td>单独汉化包商业价值有限，但“中文学习和工作流引导层”价值更大。</td>
+          </tr>
+          <tr>
+            <td>“RStudio 被你改出问题了，只有顶部工具栏能点。”</td>
+            <td>全局替换短词会误伤内部逻辑，补丁式本体修改风险高。</td>
+            <td>真正产品应优先走官方稳定入口；本体补丁必须有备份、回滚、范围控制和验证。</td>
+          </tr>
+          <tr>
+            <td>“为什么不打通 CLI 接口，原生配置 AI 功能不行吗？”</td>
+            <td>用户真正想要的是 RStudio 原生能力延展，不只是外挂窗口。</td>
+            <td>高价值方向是 Assistant/Copilot helper 中间件、rstudioapi 操作编排、企业 AI 网关。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>三、能力现状盘点</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>已经做过且有基础的部分</h3>
+          <ul class="evidence-list">
+            <li>R 包 Addin：已存在 <code>run_workbench()</code> 和 Addin 注册思路。</li>
+            <li>Provider 层：已有本地规则 provider、OpenAI Responses、OpenAI-compatible 网关设计。</li>
+            <li>环境体检：已有 R/RStudio/Quarto/R 包状态采集方向。</li>
+            <li>Connections：已有 SQLite、PostgreSQL、ODBC 连接片段和安全 DBI 代码生成方向。</li>
+            <li>MCP/CLI：已有 JSON 命令层和 stdio MCP 原型思路。</li>
+          </ul>
+        </div>
+        <div class="card span-6">
+          <h3>仍没有闭环的部分</h3>
+          <ul class="evidence-list">
+            <li>本体 AI：尚未证明 Posit Assistant/Copilot helper 协议可控。</li>
+            <li>真实用户工作流：缺少基于命令日志的高频场景排序。</li>
+            <li>可见入口：Addin 已安装不代表用户能看见、会使用。</li>
+            <li>企业交付：密钥、审计、代理、证书、权限、模型路由需要产品化。</li>
+            <li>发布边界：插件包、补丁脚本、源码 fork 需要分开命名和分发。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote">
+        关键结论：本项目不应该继续把“汉化 RStudio”作为唯一主线。汉化已经证明需求存在，但也证明本体补丁脆弱。更好的产品主线是“RStudio 中文 AI 数据分析工作台”，汉化只是入口信任和上手体验的一部分。
+      </div>
+    </section>
+
+    <section>
+      <h2>四、功能空缺优先级</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方向</th>
+            <th>用户痛点</th>
+            <th>RStudio 当前空缺</th>
+            <th>可做产品</th>
+            <th>建议优先级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>中文 AI 项目医生</td>
+            <td>R 包、镜像、Quarto、LaTeX、Python、Git、PATH 出错时看不懂。</td>
+            <td>RStudio 有诊断和日志，但没有中文解释、自动归因、修复命令生成。</td>
+            <td>一键体检、中文修复、复制命令、失败回放、诊断报告。</td>
+            <td class="ok">最高</td>
+          </tr>
+          <tr>
+            <td>错误解释与代码修复</td>
+            <td>Console 报错、包安装失败、对象不存在、路径错，新手无法判断下一步。</td>
+            <td>RStudio 显示错误，但不会把当前上下文、环境和可执行修复串起来。</td>
+            <td>选中错误 -> 中文解释 -> 修复候选 -> 用户确认执行。</td>
+            <td class="ok">最高</td>
+          </tr>
+          <tr>
+            <td>数据连接中间件</td>
+            <td>连接数据库后，不知道表含义、字段、SQL、dbplyr 怎么写。</td>
+            <td>Connections 面板偏连接展示，不是数据目录和分析助手。</td>
+            <td>企业数据源目录、字段解释、SQL/R 代码生成、权限提示。</td>
+            <td class="ok">高</td>
+          </tr>
+          <tr>
+            <td>Quarto 中文报告工厂</td>
+            <td>分析结果难变成规范报告，模板和排版重复劳动多。</td>
+            <td>RStudio 能写 Quarto，但缺中文行业模板、审阅、数据来源校验。</td>
+            <td>报告模板库、自动草稿、图表解释、渲染失败中文诊断。</td>
+            <td class="ok">高</td>
+          </tr>
+          <tr>
+            <td>命令流记录与自动化宏</td>
+            <td>重复操作多，但 RStudio 操作无法变成可复用流程。</td>
+            <td>AppCommand 很多，但用户没有录制、推荐、复盘层。</td>
+            <td>命令探针、工作流录制、宏生成、团队最佳实践沉淀。</td>
+            <td class="blue">中高</td>
+          </tr>
+          <tr>
+            <td>原生 AI helper 中间件</td>
+            <td>企业想用私有模型、国产模型、审计网关，而不是默认云服务。</td>
+            <td>RStudio 有 Assistant/Copilot 入口，但接入协议未验证。</td>
+            <td>模型路由、代理、证书、审计、企业知识库接入。</td>
+            <td class="blue">中高，但先验证</td>
+          </tr>
+          <tr>
+            <td>RStudio 中文发行版</td>
+            <td>希望打开本体就是完整中文和内置 AI。</td>
+            <td>官方中文化和国产 AI provider 不完整。</td>
+            <td>源码 fork、中文 UI、内置模型配置、企业版安装器。</td>
+            <td class="warn">后置</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>五、用第一性原理筛选商业方向</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>最优先：项目医生 + 错误解释</h3>
+          <p>这是最高频、最低门槛、最容易让用户感到“真的帮我”的方向。它不需要先打穿 RStudio 本体，也不需要等待原生 Assistant 协议验证。</p>
+          <div class="bar"><span>用户痛感</span><div class="track"><div class="fill" style="width: 94%"></div></div><span>94</span></div>
+          <div class="bar"><span>实现可控</span><div class="track"><div class="fill" style="width: 86%"></div></div><span>86</span></div>
+          <div class="bar"><span>差异化</span><div class="track"><div class="fill" style="width: 78%"></div></div><span>78</span></div>
+          <p>第一版功能：读取 Console 错误、项目结构、包状态、Quarto check、日志摘要，输出中文解释和修复命令。</p>
+        </div>
+        <div class="card span-6">
+          <h3>第二优先：数据连接助手</h3>
+          <p>数据接入是分析链路前置瓶颈。RStudio 有 Connections，但没有把“连上数据”变成“理解数据、生成分析代码、生成报告”。</p>
+          <div class="bar"><span>用户痛感</span><div class="track"><div class="fill" style="width: 88%"></div></div><span>88</span></div>
+          <div class="bar"><span>实现可控</span><div class="track"><div class="fill" style="width: 76%"></div></div><span>76</span></div>
+          <div class="bar"><span>企业价值</span><div class="track"><div class="fill" style="width: 91%"></div></div><span>91</span></div>
+          <p>第一版功能：连接模板、字段解释、SQL 生成、dbplyr 代码生成、密码不落盘、连接审计。</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card span-6">
+          <h3>第三优先：Quarto 报告工厂</h3>
+          <p>RStudio 用户最终往往不是交付代码，而是交付报告、图表、结论。这里天然适合中文模板和 AI 辅助。</p>
+          <p><span class="tag">行业模板</span><span class="tag">中文摘要</span><span class="tag">渲染诊断</span><span class="tag">报告审阅</span></p>
+        </div>
+        <div class="card span-6">
+          <h3>第四优先：原生 AI helper 验证</h3>
+          <p>这是潜在上限最高的方向，但必须先做协议验证。不要在没有抓到 helper 行为前，把它当成已完成能力。</p>
+          <p><span class="tag">Posit Assistant</span><span class="tag">Copilot helper</span><span class="tag">企业模型网关</span><span class="tag">审计代理</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>六、推荐产品定义</h2>
+      <div class="card">
+        <h3>产品名建议：RStudio 中文数据分析副驾驶</h3>
+        <p>一句话定位：在 RStudio 里，把中文用户从“报错、环境、数据连接、报告交付”的断点中拉出来。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>模块</th>
+              <th>第一版能力</th>
+              <th>技术入口</th>
+              <th>验收方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>项目医生</td>
+              <td>R/RStudio/Quarto/包/Git/Python/日志体检，中文修复建议。</td>
+              <td>R 包 Addin + Rscript CLI + diagnostics</td>
+              <td>给出 HTML/Markdown 体检报告和可复制命令。</td>
+            </tr>
+            <tr>
+              <td>错误解释</td>
+              <td>选中 Console 错误或当前脚本，解释原因，生成修复方案。</td>
+              <td><code>rstudioapi</code> 上下文采集 + Provider Registry</td>
+              <td>至少覆盖 30 个常见 R 报错和 10 个包安装问题。</td>
+            </tr>
+            <tr>
+              <td>数据连接助手</td>
+              <td>生成安全 DBI 连接代码，解释表结构，生成 SQL/R 片段。</td>
+              <td>Connection Snippets + DBI/ODBC</td>
+              <td>SQLite/PostgreSQL/ODBC 三类连接可演示。</td>
+            </tr>
+            <tr>
+              <td>报告工厂</td>
+              <td>从脚本/结果生成中文 Quarto 草稿，渲染失败给中文诊断。</td>
+              <td>Quarto CLI + Jobs</td>
+              <td>生成可渲染 qmd，失败时能定位缺包/LaTeX/Jupyter。</td>
+            </tr>
+            <tr>
+              <td>企业 AI 网关</td>
+              <td>支持 OpenAI-compatible、本地模型、国产云、企业代理，不泄露密钥。</td>
+              <td>Provider Registry + 审计日志</td>
+              <td>模型探测、配置状态、密钥脱敏全部可验证。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>七、三条路线的边界</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>路线</th>
+            <th>适合做什么</th>
+            <th>不适合做什么</th>
+            <th>本项目判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>插件路线</td>
+            <td>Addin、项目医生、错误解释、报告生成、数据连接模板。</td>
+            <td>不能真正改 RStudio 本体菜单和原生 Assistant 后端。</td>
+            <td class="ok">应作为 MVP 主线。</td>
+          </tr>
+          <tr>
+            <td>中间件路线</td>
+            <td>AI Provider、CLI/MCP、企业网关、审计、Quarto/Git/Rscript 编排。</td>
+            <td>不能单独提供完整桌面体验，需要和 Addin 或外部 Agent 配合。</td>
+            <td class="ok">应作为产品护城河。</td>
+          </tr>
+          <tr>
+            <td>本体二开路线</td>
+            <td>完整中文发行版、原生面板、Assistant/Copilot provider 深改。</td>
+            <td>不适合快速试错，维护和 AGPL 合规成本高。</td>
+            <td class="warn">等商业验证后再做。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>八、建议的 30 天路线</h2>
+      <div class="phase">
+        <h3>第 1 周：把“项目医生”做成可演示闭环</h3>
+        <p>输入当前项目路径，输出中文 HTML 报告：R/RStudio/Quarto/包/镜像/Git/Python/日志。报告必须包含问题等级、原因、修复命令和复制按钮。</p>
+      </div>
+      <div class="phase">
+        <h3>第 2 周：接入错误解释和上下文采集</h3>
+        <p>用 <code>rstudioapi</code> 读取当前文件、选区、项目路径和 Console 复制文本，做“解释这个错误”和“修复这个脚本”两个按钮。</p>
+      </div>
+      <div class="phase">
+        <h3>第 3 周：做数据连接和 Quarto 报告样板</h3>
+        <p>把 SQLite/PostgreSQL/ODBC 连接代码、安全密码策略、SQL 生成、Quarto 报告草稿串成一个完整 demo。</p>
+      </div>
+      <div class="phase">
+        <h3>第 4 周：Provider 和企业化最小闭环</h3>
+        <p>完成本地模型、OpenAI-compatible、至少两个国产云 provider 的模型探测、脱敏配置、审计日志和失败建议。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>九、不要再踩的坑</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>坑</th>
+            <th>为什么危险</th>
+            <th>治理规则</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>把 Addin 说成本体汉化</td>
+            <td>用户打开本体看不到变化，会直接判定无效。</td>
+            <td>所有交付必须标明：插件、补丁、本体二开、中间件。</td>
+          </tr>
+          <tr>
+            <td>用全局短词替换本体资源</td>
+            <td>可能误伤内部协议或动态 UI，导致 RStudio 异常。</td>
+            <td>只替换完整 UI 文案；短词只做 DOM 局部 overlay。</td>
+          </tr>
+          <tr>
+            <td>没有实际窗口验收</td>
+            <td>文件改了不代表用户看到变化。</td>
+            <td>每次 UI 交付必须有启动、截图、路径、回滚证据。</td>
+          </tr>
+          <tr>
+            <td>先做大而全报告</td>
+            <td>报告不能替代产品，用户要的是能点、能跑、能解决问题。</td>
+            <td>每份报告都要沉淀为一个可运行功能或验收清单。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>十、证据索引</h2>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>本项目证据文件</h3>
+          <ul class="evidence-list">
+            <li><code>RStudio交付治理台账.md</code>：记录 Addin 与本体汉化混淆、已安装入口和纠偏结论。</li>
+            <li><code>RStudio原生AI与CLI接入路线.md</code>：记录 Desktop CLI 边界、rsession 参数、652 个 AppCommand。</li>
+            <li><code>剩余英文return字符串候选.txt</code>：4500 行候选，证明完全汉化是持续工程。</li>
+            <li><code>RStudio本体汉化补丁记录.tsv</code>：记录 GWT 字符串替换范围，也暴露短词替换风险。</li>
+            <li><code>归档/20260530-旧插件与报告/rstudio-zh-ai-workbench/README.md</code>：记录旧插件已有能力和边界。</li>
+          </ul>
+        </div>
+        <div class="card span-6">
+          <h3>可视化验证材料</h3>
+          <p>目录中保留了多张 RStudio 汉化验证截图，说明项目已经经历过“截图不全、窗口不一致、二级菜单漏翻、补丁风险”等真实反馈循环。</p>
+          <img class="screenshot" src="RStudio补漏后首屏-20260530-1435.png" alt="RStudio 汉化验证截图">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      结论：最值得投入的不是继续无限追逐“完全汉化”，而是把汉化中暴露出的中文用户真实痛点，转成 RStudio 中文 AI 数据分析副驾驶。MVP 应从项目医生、错误解释、数据连接、Quarto 报告工厂开始；本体二开和原生 AI helper 作为验证后的高阶路线。
+    </footer>
+  </main>
+</body>
+</html>

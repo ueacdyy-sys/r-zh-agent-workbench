@@ -1,0 +1,4 @@
+Binding: create_zh_ai_project
+Title: RStudio Chinese AI Analysis Project
+Subtitle: Scaffold a reproducible RStudio project with AI workbench guidance and Quarto reporting.
+OpenFiles: README.md, reports/analysis.qmd
