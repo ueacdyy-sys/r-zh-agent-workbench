@@ -10,6 +10,18 @@
 - [ ] 运行密钥扫描。
 - [ ] 确认 GitHub CLI 已登录：`gh auth status`。
 
+可重复执行的发布前检查：
+
+```powershell
+.\scripts\Test-ReleaseReadiness.ps1
+```
+
+如果只是想在 GitHub 登录前检查本地代码：
+
+```powershell
+.\scripts\Test-ReleaseReadiness.ps1 -SkipRCheck -SkipLocalizerInspect -SkipGitHubAuth
+```
+
 ## 创建公开仓库
 
 ```powershell

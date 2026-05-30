@@ -19,6 +19,7 @@
 - 真实反馈和功能空缺分析整理到 `docs/analysis`。
 - 增加 GitHub Actions R 包检查。
 - 增加发布脚本 `scripts/Publish-To-GitHub.ps1`。
+- 增加发布前验证脚本 `scripts/Test-ReleaseReadiness.ps1`。
 
 ## 验证记录
 
@@ -65,6 +66,14 @@ OverlayInstalled: True
 ```text
 You are not logged into any GitHub hosts. To log in, run: gh auth login
 ```
+
+### 可重复发布前检查
+
+```powershell
+.\scripts\Test-ReleaseReadiness.ps1
+```
+
+该脚本会检查 Git 工作区、禁止发布的本机产物、高置信密钥模式、R 包测试、R CMD check、localizer inspect 和 GitHub CLI 登录状态。登录 GitHub 前可加 `-SkipGitHubAuth` 做本地段验证。
 
 ## 仍需用户完成
 
