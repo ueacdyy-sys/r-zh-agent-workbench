@@ -59,12 +59,10 @@ startup_banner_status <- function(path = rstudio_user_rprofile_path()) {
   )
 }
 
-collect_rstudio_extension_status <- function() {
+collect_rstudio_extension_status <- function(rstudio = detect_rstudio_info()) {
   package_path <- installed_package_path()
   package_installed <- nzchar(package_path) && dir.exists(package_path)
   version <- tryCatch(as.character(utils::packageVersion("rstudiozhai")), error = function(e) "")
-
-  rstudio <- detect_rstudio_info()
 
   addin_path <- safe_system_file("rstudio", "addins.dcf")
   addin_meta <- read_first_dcf_record(addin_path)
@@ -156,17 +154,19 @@ collect_rstudio_extension_status <- function() {
   snippets_ok <- length(connection_snippets) >= 3L &&
     all(vapply(connection_snippets, function(item) isTRUE(item$ok), logical(1)))
 
-  overall_ok <- isTRUE(package_installed) &&
-    isTRUE(rstudio$ok) &&
+  package_resources_ok <- isTRUE(package_installed) &&
     isTRUE(addin$ok) &&
     isTRUE(project_template$ok) &&
     isTRUE(connections$ok) &&
     isTRUE(snippets$ok) &&
     isTRUE(snippets_ok)
 
+  overall_ok <- isTRUE(package_resources_ok) && isTRUE(rstudio$ok)
+
   list(
     generated_at = format(Sys.time(), "%Y-%m-%d %H:%M:%S %z"),
     overall_ok = overall_ok,
+    package_resources_ok = package_resources_ok,
     package = list(
       installed = package_installed,
       path = package_path,
@@ -211,6 +211,7 @@ format_rstudio_extension_status <- function(status) {
     "",
     paste0("\u751f\u6210\u65f6\u95f4\uff1a", status$generated_at),
     paste0("\u603b\u4f53\u72b6\u6001\uff1a", bool(status$overall_ok)),
+    paste0("\u5305\u5185\u6269\u5c55\u8d44\u6e90\uff1a", bool(status$package_resources_ok)),
     "",
     "## Package",
     paste0("- \u72b6\u6001\uff1a", bool(status$package$installed)),

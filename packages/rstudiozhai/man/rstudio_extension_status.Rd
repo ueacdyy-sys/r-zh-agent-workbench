@@ -3,11 +3,15 @@
 \alias{format_rstudio_extension_status}
 \title{Validate installed RStudio extension resources}
 \usage{
-collect_rstudio_extension_status()
+collect_rstudio_extension_status(rstudio = detect_rstudio_info())
 
 format_rstudio_extension_status(status)
 }
 \arguments{
+\item{rstudio}{Optional RStudio detection result. Defaults to
+\code{detect_rstudio_info()}; tests can pass a stub to validate package resources
+on machines without RStudio Desktop.}
+
 \item{status}{Result from \code{collect_rstudio_extension_status()}.}
 }
 \value{
