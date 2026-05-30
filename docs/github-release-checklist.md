@@ -9,6 +9,7 @@
 - [ ] 运行 R 包测试。
 - [ ] 运行密钥扫描。
 - [ ] 确认 GitHub CLI 已登录：`gh auth status`。
+- [ ] 确认公开文档不包含本机调试日志、临时验证记录或用户私有路径。
 
 可重复执行的发布前检查：
 
@@ -25,7 +26,7 @@
 ## 创建公开仓库
 
 ```powershell
-cd C:\Users\Administrator\Desktop\rstudio开发\github\r-zh-agent-workbench
+cd <repo-root>
 gh auth login
 gh repo create r-zh-agent-workbench --public --source . --remote origin --push
 ```
@@ -37,5 +38,5 @@ gh repo create r-zh-agent-workbench --public --source . --remote origin --push
 - 说明：
   - RStudio Addin 工作台原型。
   - RStudio 2026.05.0+218 中文 overlay 词表和补丁器。
-  - 第一性原理产品分析和商业化边界文档。
+  - 产品策略、AI 集成策略和商业化边界文档。
   - 明确声明不是官方发行版，不包含 RStudio 二进制。

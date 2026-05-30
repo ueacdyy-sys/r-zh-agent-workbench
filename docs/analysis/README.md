@@ -1,8 +1,8 @@
-# Analysis Documents
+# 研究资料
 
-这些文档来自本地 RStudio 汉化和二次开发探索过程，用于解释为什么仓库主线从“单纯汉化”转向“中文 AI 数据分析工作台”。
+这些文档用于说明 RStudio 功能边界、二次开发入口、AI 集成方向和中文工作流机会。它们是研究资料，不等同于已经发布的产品能力。
 
-- `rstudio-project-feedback-and-opportunity-analysis.html`: 真实反馈、功能空缺和产品机会深度分析。
+- `rstudio-project-feedback-and-opportunity-analysis.html`: RStudio 项目验证和产品机会分析。
 - `RStudio功能探索报告.md`: RStudio 功能面、菜单、窗格和扩展入口盘点。
 - `RStudio二次开发方向完整枚举.html`: 二次开发方向枚举。
 - `RStudio中文图文使用入门.html`: 中文图文使用引导。

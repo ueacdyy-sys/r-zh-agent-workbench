@@ -2,21 +2,21 @@
 
 面向 RStudio 工作流的中文 AI 数据分析工作台、汉化补丁器和产品研究资料。
 
-本仓库不是 Posit 或 RStudio 官方项目，也不分发 RStudio 二进制文件、修改后的 RStudio 资源文件或 Posit Assistant 组件。它只开源我们自己写的 R 包、PowerShell 工具、中文词表、验证记录和分析文档。
+本仓库不是 Posit 或 RStudio 官方项目，也不分发 RStudio 二进制文件、修改后的 RStudio 资源文件或 Posit Assistant 组件。它只开源本项目自行编写的 R 包、PowerShell 工具、中文词表、测试脚本和分析文档。
 
-## 第一性原理
+## 项目定位
 
-RStudio 用户真正买单的不是“一个按钮”或“一个翻译词表”，而是这条链路变短：
+本项目关注 RStudio 用户从数据接入到报告交付的完整工作流：
 
 ```text
 数据接入 -> 环境可用 -> 写代码 -> 运行调试 -> 解释结果 -> 生成报告 -> 团队复用
 ```
 
-所以本仓库按三层拆分：
+仓库按三层组织：
 
 - `packages/rstudiozhai`: RStudio Addin / R 包，提供中文项目医生、AI provider 适配、Quarto 报告、Connections、Snippets、CLI/MCP 原型。
 - `localizer`: 版本限定的 RStudio 中文化补丁器，默认用运行时 overlay，带版本检查、备份和移除，不发布改版 RStudio。
-- `docs/analysis`: 真实反馈、功能空缺、AI Agent IDE 方向和商业化边界分析。
+- `docs/analysis`: RStudio 功能探索、二次开发方向、AI Agent IDE 方向和商业化边界研究。
 
 ## 推荐使用顺序
 
@@ -66,12 +66,19 @@ powershell -ExecutionPolicy Bypass -File .\localizer\tools\Invoke-RStudioZhLocal
 
 更多细节见 [docs/open-source-boundaries.md](docs/open-source-boundaries.md)。
 
-## 仓库状态
+## 核心文档
 
-这是从本地实验台整理出的首个开源仓库骨架。已清理内容包括：
+- [产品策略](docs/product-strategy.md)
+- [AI 集成策略](docs/ai-integration-strategy.md)
+- [仓库架构](docs/repository-architecture.md)
+- [发布流程](docs/release-process.md)
 
-- RStudio 备份缓存、改后缓存和安装目录资源。
+## 不包含内容
+
+为保持许可和隐私边界清晰，本仓库不包含：
+
+- RStudio 安装包、备份缓存、改后缓存和安装目录资源。
 - R 包构建产物、`.Rcheck` 目录和压缩包。
-- 用户状态、OAuth、密钥和本机配置。
+- 用户状态、OAuth、密钥、本机配置或客户数据。
 
-后续发布前应再做一次完整测试和 GitHub Actions 验证。
+公开版本以本地检查脚本和 GitHub Actions 结果作为质量门禁。

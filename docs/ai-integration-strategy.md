@@ -1,4 +1,4 @@
-# Posit Assistant 与本项目 AI 空缺
+# AI 集成策略
 
 ## 结论
 
@@ -11,7 +11,7 @@ Posit Assistant 已经是 RStudio 新版本里的官方 AI 能力入口。本项
 - RStudio 的 Assistant 入口和协议可以作为兼容目标研究，但不要把私有 helper 当公开 SDK 承诺。
 - 本仓库只发布自己写的 provider、R 包、CLI/MCP 原型、词表和补丁工具。
 
-## 第一性原理判断
+## 产品判断
 
 官方 Assistant 的目标是让 RStudio 用户获得通用 AI 代码助手。中文商业机会不在“再做一个低配聊天框”，而在以下链路：
 
@@ -19,7 +19,7 @@ Posit Assistant 已经是 RStudio 新版本里的官方 AI 能力入口。本项
 中文用户痛点 -> RStudio 上下文 -> 企业/本地模型 -> 可审计操作 -> 可交付报告
 ```
 
-## 本项目应该抢的空位
+## 本项目的产品空间
 
 1. 中文项目医生
    - R/RStudio/Quarto/包/Git/Python/LaTeX 诊断。

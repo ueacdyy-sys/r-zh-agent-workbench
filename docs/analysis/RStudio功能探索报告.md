@@ -123,12 +123,12 @@ rstudio.exe --version
 
 `diagnostics.exe --help` 实际输出会读取这些路径：
 
-- `C:\Users\Administrator\AppData\Local\RStudio\log\rdesktop.log`
-- `C:\Users\Administrator\AppData\Local\RStudio\log\rsession-Administrator.log`
-- `C:\Users\Administrator\AppData\Local\RStudio\log\positai.log`
-- `C:\Users\Administrator\AppData\Roaming\RStudio\rstudio-prefs.json`
+- `%LOCALAPPDATA%\RStudio\log\rdesktop.log`
+- `%LOCALAPPDATA%\RStudio\log\rsession-<user>.log`
+- `%LOCALAPPDATA%\RStudio\log\positai.log`
+- `%APPDATA%\RStudio\rstudio-prefs.json`
 - `C:\ProgramData\RStudio\rstudio-prefs.json`
-- `C:\Users\Administrator\AppData\Local\RStudio\rstudio-desktop.json`
+- `%LOCALAPPDATA%\RStudio\rstudio-desktop.json`
 
 `rstudio.exe --run-diagnostics` 可以启动 R session 并输出 R 启动过程、R_HOME、PATH、连接端口等信息。
 
@@ -611,10 +611,10 @@ RStudio 包开发能力：
 
 本地配置位置：
 
-- 用户状态：`C:\Users\Administrator\AppData\Local\RStudio\rstudio-desktop.json`
-- 用户偏好：`C:\Users\Administrator\AppData\Roaming\RStudio\rstudio-prefs.json`
+- 用户状态：`%LOCALAPPDATA%\RStudio\rstudio-desktop.json`
+- 用户偏好：`%APPDATA%\RStudio\rstudio-prefs.json`
 - 系统偏好：`C:\ProgramData\RStudio\rstudio-prefs.json`
-- 快捷键：`C:\Users\Administrator\AppData\Roaming\RStudio\keybindings\`
+- 快捷键：`%APPDATA%\RStudio\keybindings\`
 
 本机 `user-prefs-schema.json` 约 290 项，覆盖：
 

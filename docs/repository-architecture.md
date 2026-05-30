@@ -6,7 +6,7 @@
 r-zh-agent-workbench/
   packages/rstudiozhai/   RStudio Addin / R 包主产品
   localizer/              RStudio 本地中文 overlay 工具
-  docs/analysis/          真实反馈、功能空缺和二开路线研究
+  docs/analysis/          功能探索、产品机会和二开路线研究
   docs/assets/            文档截图和演示资产
   scripts/                发布和维护脚本
   .github/workflows/      GitHub Actions 验证
@@ -18,7 +18,7 @@ r-zh-agent-workbench/
 
 - `packages/rstudiozhai` 是主线，可商用、可开源、可持续迭代。
 - `localizer` 是实验性工具，只对本地已安装 RStudio 打补丁。
-- `docs/analysis` 是产品判断证据，不等同于已完成能力。
+- `docs/analysis` 是研究资料，不等同于已完成能力。
 
 ## 发布资产原则
 
@@ -46,4 +46,4 @@ r-zh-agent-workbench/
 3. `r-agent-workbench-research`
    - 产品研究、教程、截图、路线图。
 
-当前先不拆，是为了保留完整上下文，方便第一批用户理解项目从何而来。
+当前先不拆，是为了保留完整上下文，方便第一批使用者理解各模块之间的关系。

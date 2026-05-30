@@ -19,9 +19,9 @@ This is the first public alpha of R Zh Agent Workbench.
   - Patch records from the local localization work.
 
 - `docs`
-  - First-principles product map.
+  - Product strategy.
   - Open source and commercialization boundaries.
-  - Posit Assistant and AI gap analysis.
+  - AI integration strategy.
   - RStudio feature exploration and Chinese tutorial materials.
 
 ## Verification
