@@ -67,7 +67,7 @@ Assert-NoOutput -Name "Secret pattern scan" -Script {
     "-----BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----"
   )
   foreach ($pattern in $patterns) {
-    rg -n --hidden --glob "!.git/**" --glob "!*.png" $pattern . 2>$null
+    rg -n --hidden --glob "!.git/**" --glob "!*.png" -- $pattern . 2>$null
   }
 }
 
